@@ -31,3 +31,65 @@ p {
     font-family: "Work Sans", sans-serif;
 }
 
+/* About-Page-Styling */
+.header {
+    background-color: var(--background-beige);
+}
+
+.header-img {
+    width: 100%;
+}
+
+.about-main {
+    background-color: var(--background-beige);
+}
+
+.about-main__container {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-info__container {
+    padding: 1rem;
+}
+
+.about-main__title{
+    margin-bottom: 1rem;
+}
+
+.about-main__text {
+    overflow-wrap: break-word;
+    margin-bottom: 3rem;
+}
+
+.about-avatar__container {
+    background-color: var(--background-beige);  
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5rem;
+}
+
+.about-avatar__img {
+    border-radius: 50%;
+}
+
+.about-avatar__name {
+    font-size: 22px;
+}
+
+.about-avatar__text {
+    text-align: center;
+    font-size: 12px;
+}
+
+.footer {
+    background-color: var(--background-beige);
+}
+
+.footer-img {
+    width: 100%;
+}
+
+
