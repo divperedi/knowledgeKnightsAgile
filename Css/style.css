@@ -118,7 +118,7 @@ p {
 }
 
 .product__footer-img {
-    width: 100%; /* Make the image width 100% of the container */
-    height: auto; /* Allow the height to adjust proportionally */
+    width: 100%;
+    height: auto;
     vertical-align: middle;
 }
