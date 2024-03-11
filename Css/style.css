@@ -38,15 +38,18 @@ p {
 }
 
 .product__main {
-    /* position: relative;
-    margin-bottom: 0; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .product__nav {
     background-image: url(/Assets/graphics-header.svg);
     background-size: contain;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     position: relative;
 }
@@ -110,10 +113,12 @@ p {
 .product__footer {
     position: fixed;
     bottom: 0;
-    width: 100%;
+    width: 100vw;
     display: block;
 }
 
 .product__footer-img {
+    width: 100%; /* Make the image width 100% of the container */
+    height: auto; /* Allow the height to adjust proportionally */
     vertical-align: middle;
 }
