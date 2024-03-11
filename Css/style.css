@@ -31,3 +31,36 @@ p {
     font-family: "Work Sans", sans-serif;
 }
 
+.product__body {
+    background-color: var(--background-beige);
+    height: 100vh;
+    width: 100vw;
+}
+
+.product__main {
+    position: relative;
+    margin-bottom: 0;
+}
+
+.product__hamburger-icon {
+    position: absolute;
+    left: 20px;
+    top: 15px;
+}
+
+.product__cart-icon {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
+
+.product__footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: block;
+}
+
+.product__footer-img {
+    vertical-align: middle;
+}
