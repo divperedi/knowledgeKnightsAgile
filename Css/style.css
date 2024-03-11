@@ -1,3 +1,33 @@
-.title {
-    background-color: red;
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+/* Varibels */
+:root {
+    --main-green: #38846D;
+    --background-beige: #F3E4E1;
+    --airbean-brown: #2F2926;
+    --airbrean-orange: #E5674E;
+    --background-blur: rgba(0,0,0,0.7);
+}
+
+body {
+    font-family: "PT Serif", serif;
+}
+
+ul, li {
+    list-style: none;
+}
+
+h1 {
+    font-size: 42px;
+}
+
+p {
+    font-family: "Work Sans", sans-serif;
+}
+
