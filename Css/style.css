@@ -104,14 +104,15 @@ a {
 
 /* About-Page-Styling */
 
+.product__main-heading {
+    color: var(--airbean-brown);
+}
+
 .product__nav {
     background-image: url(/Assets/graphics-header.svg);
     background-size: contain;
     background-repeat: no-repeat;
-
-    height: 100%;
-    width: 100%;
-    position: relative;
+    min-height: 40%;
     width: 100%;
 }
 
@@ -169,6 +170,59 @@ a {
     top: 1px;
     font-family: "PT Serif", serif;
     font-weight: 700;
+}
+
+.product__products {
+    margin-bottom: 150px;
+}
+
+.product__menu-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 28px;
+}
+
+.product__item-price {
+    padding: 8px;
+    font-size: 23px;
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+    color: var(--airbean-brown);
+}
+
+.product__item-icon {
+    width: 32px;
+    height: 32px;
+    background-color: var(--airbean-brown);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+}
+
+.menu-item-add {
+    width: 12px;
+    height: 12px;
+}
+
+.product__item-text {
+    padding-left: 16px;
+    width: 80%;
+    color: var(--airbean-brown);
+}
+
+.item-title {
+    font-size: 23px;
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+}
+
+.item-desc {
+    font-size: 12px;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
 }
 
 .product__footer {
