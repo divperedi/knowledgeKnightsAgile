@@ -1,24 +1,24 @@
-console.log('Hello World');
+
 
 import apiHandler from "./apiHandler.js";
+import { lazyLoadApi } from "./lazyLoader.js";
 
 window.addEventListener('DOMContentLoaded', async () => {
     console.log('DOM loaded');
-
     fetchCoffee();
 });
 
 async function fetchCoffee() {
     try {
         const data = await apiHandler.fetchData('https://santosnr6.github.io/Data/airbeanproducts.json');
-        console.log(data);
         renderMenu(data.menu);
     } catch (error) {
         console.error(error);
     }
 }
 
-function renderMenu(data) {
+async function renderMenu(data) {
+    await lazyLoadApi(data);
     const menuList = document.querySelector('.product__products');
 
     menuList.innerHTML = '';
