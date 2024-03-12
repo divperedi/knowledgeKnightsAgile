@@ -31,6 +31,20 @@ p {
     font-family: "Work Sans", sans-serif;
 }
 
+.product__body {
+    background-color: var(--background-beige);
+    height: 100vh;
+    width: 100vw;
+}
+
+.product__main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 a {
     text-decoration: none;
 }
@@ -89,10 +103,15 @@ a {
 }
 
 /* About-Page-Styling */
+
 .product__nav {
     background-image: url(/Assets/graphics-header.svg);
     background-size: contain;
     background-repeat: no-repeat;
+
+    height: 100%;
+    width: 100%;
+    position: relative;
     width: 100%;
 }
 
@@ -130,6 +149,39 @@ a {
     height: 20px;
     right: 17px;
     top: 19px;
+}
+
+.cart-extra {
+    width: 22px;
+    height: 22px;
+    background-color: var(--airbrean-orange);
+    border-radius: 50%;
+    position: absolute;
+    right: 2px;
+    top: -5px;
+}
+
+.cart-extra-text {
+    color: white;
+    font-size: 14px;
+    position: absolute;
+    right: 7px;
+    top: 1px;
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+}
+
+.product__footer {
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    display: block;
+}
+
+.product__footer-img {
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
 }
 
 .header {
