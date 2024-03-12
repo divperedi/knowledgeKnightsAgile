@@ -12,14 +12,15 @@
     --background-beige: #F3E4E1;
     --airbean-brown: #2F2926;
     --airbrean-orange: #E5674E;
-    --background-blur: rgba(0,0,0,0.7);
+    --background-blur: rgba(0, 0, 0, 0.7);
 }
 
 body {
     font-family: "PT Serif", serif;
 }
 
-ul, li {
+ul,
+li {
     list-style: none;
 }
 
@@ -30,6 +31,47 @@ h1 {
 p {
     font-family: "Work Sans", sans-serif;
 }
+
+
+
+
+/* Landingpage */
+
+.main {
+    background-color: var(--main-green);
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+
+.main__leaf-img {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.main__leaf-img img:nth-child(1) {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    z-index: 1;
+}
+
+.main__leaf-img img:nth-child(2) {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    z-index: 2;
+}
+
+.main__logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
 
 .product__body {
     background-color: var(--background-beige);
