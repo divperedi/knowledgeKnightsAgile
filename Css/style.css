@@ -28,7 +28,8 @@ h1 {
     font-size: 42px;
 }
 
-p, label {
+p,
+label {
     font-family: "Work Sans", sans-serif;
 }
 
@@ -106,6 +107,7 @@ a {
     border-radius: 50%;
     border: none;
     background: var(--background-beige);
+    cursor: pointer;
 }
 
 .nav-page__close-icon {
@@ -113,7 +115,6 @@ a {
 }
 
 .nav-page__menu {
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -183,7 +184,7 @@ a {
     border-radius: 50%;
     right: 16px;
     top: 16px;
-    z-index: 9999; 
+    z-index: 9999;
 }
 
 .product__cart-icon {
@@ -338,6 +339,7 @@ a {
 
 .footer-img {
     width: 100%;
+    vertical-align: middle;
 }
 
 
@@ -363,38 +365,38 @@ a {
     justify-content: center;
     border-radius: .3rem;
     z-index: 999;
-  }
+}
 
-  .login-page__icon {
+.login-page__icon {
     width: 30px;
     margin: .5rem;
-  }
-  
-  .login-page__heading {
+}
+
+.login-page__heading {
     font-size: 32px;
     margin-bottom: .5rem;
     text-align: center;
     max-width: 350px;
-  }
-  
-  .login-page__info-text {
+}
+
+.login-page__info-text {
     font-size: 16px;
     font-weight: 300;
     margin-bottom: 1rem;
     line-height: 1.5;
     text-align: center;
     max-width: 400px;
-  }
-  
-  .login-page__form-wrapper form {
+}
+
+.login-page__form-wrapper form {
     display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 400px;
     margin: 1rem 0;
-  }
+}
 
-  .login-page__input {
+.login-page__input {
     padding: .8rem;
     font-size: 16px;
     /* font-weight: 300; funkar ej fattar noll ? */
@@ -403,32 +405,33 @@ a {
     border: 1px solid black;
     border-radius: .4rem;
     margin-bottom: 1rem;
-  }
-  
-  .login-page__form-wrapper label {
+}
+
+.login-page__form-wrapper label {
     font-size: 12px;
     margin-bottom: .3rem;
-  }
+}
 
-  .login-page__gdpr-radio {
+.login-page__gdpr-radio {
     display: flex;
     align-items: center;
     margin-top: .3rem;
-  }
-  
-  .login-page__gdpr-input {
+}
+
+.login-page__gdpr-input {
     margin-right: .3rem;
     width: 1rem;
-  }
+}
 
 /* Fungerar ej */
-  .login-page__gdpr-input:checked { 
+.login-page__gdpr-input:checked {
     background-color: #0E927D;
-    border-color: #0E927D; 
-  }
+    border-color: #0E927D;
+}
+
 /* Fungerar ej */
-  
-  .login-page__sumbit-btn {
+
+.login-page__sumbit-btn {
     background-color: var(--airbean-brown);
     color: white;
     font-family: 'PT serif';
@@ -440,12 +443,12 @@ a {
     cursor: pointer;
     transition: 0.2s;
     margin: 2.2rem auto .5rem;
-  }
-  
-  .login-page__sumbit-btn:hover {
-    background-color: #2f2926ec; 
-  }
-  
+}
+
+.login-page__sumbit-btn:hover {
+    background-color: #2f2926ec;
+}
+
 /* Status-Page-Styling */
 
 .status__wrapper {
@@ -515,12 +518,15 @@ a {
     font-size: 24px;
     font-weight: 700;
     font-family: "PT Serif";
+    cursor: pointer;
 }
 
 
 /* Lazy Loader */
 
-.d-none {display: none;}
+.d-none {
+    display: none;
+}
 
 .lazy-loader {
     margin-top: 5rem;
@@ -530,7 +536,7 @@ a {
 /* Profile-page-styling */
 
 
-.profile-header{
+.profile-header {
     background-color: var(--airbean-brown);
 }
 
@@ -555,6 +561,7 @@ a {
     height: 94px;
 
 }
+
 .profile-avatar__name {
     color: rgba(255, 255, 255, 1);
     font-weight: 700;
@@ -620,6 +627,7 @@ a {
     margin-top: .5rem;
     margin-bottom: .5rem;
 }
+
 .modal {
     display: flex;
     flex-direction: column;
@@ -665,14 +673,14 @@ a {
     font-family: "Work Sans", sans-serif;
     font-weight: 400;
     font-size: 18px;
-    font-style: normal;    
+    font-style: normal;
     color: #0F0E0E;
     margin-top: 89px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-}  
+}
 
 .close-button {
     color: var(--airbean-brown);
@@ -753,21 +761,21 @@ a {
     grid-template-areas:
         "priceText . priceValue"
         "additionalInfo . .";
-        width: 100%;
+    width: 100%;
 }
 
 .total-price-text {
-    grid-area: priceText; 
+    grid-area: priceText;
 }
 
 .additional-info {
-    grid-area: additionalInfo; 
+    grid-area: additionalInfo;
     font-size: 12px;
     font-weight: 400;
 }
 
 .total-price-value {
-    grid-area: priceValue; 
+    grid-area: priceValue;
     font-size: 23px;
     font-family: "PT Serif", serif;
     font-weight: 700;
@@ -793,7 +801,7 @@ a {
     cursor: pointer;
 }
 
-.take-my-money-button:active{
+.take-my-money-button:active {
     transform: translateY(2px);
 }
 
