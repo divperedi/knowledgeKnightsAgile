@@ -528,6 +528,99 @@ a {
     width: 7rem;
 }
 
+/* Profile-page-styling */
+
+
+.profile-header{
+    background-color: var(--airbean-brown);
+}
+
+.profile-main {
+    height: 100vh;
+    background-color: var(--airbean-brown);
+}
+
+.profile-main__container {
+    padding: 1rem;
+}
+
+.profile-avatar__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-avatar__img {
+    margin-bottom: 1rem;
+    width: 94px;
+    height: 94px;
+
+}
+.profile-avatar__name {
+    color: rgba(255, 255, 255, 1);
+    font-weight: 700;
+    font-size: 24px;
+    margin-bottom: .5rem;
+}
+
+.profile-avatar__info {
+    opacity: 80%;
+    font-family: "Work Sans", sans-serif;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 8);
+    font-size: 14px;
+}
+
+.profile-order__title {
+    padding-left: .2rem;
+    margin-bottom: 1rem;
+    margin-top: 5rem;
+    color: rgba(255, 255, 255, 1);
+    font-family: "PT Serif", serif;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.profile-order__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-product__orderNumber {
+    font-size: 14px;
+}
+
+.profile-product__orderInfo {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.profile-product__cost {
+    color: rgba(255, 255, 255, 0.5);
+    opacity: 50%;
+}
+
+
+.profile-product__orderNumber,
+.profile-product__cost,
+.profile-product__totalSpent {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2rem;
+}
+
+.profile-product__lineOne {
+    color: rgba(255, 255, 255, 0.08);
+    opacity: 30%;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+
+.profile-product__lineTwo {
+    color: rgba(255, 255, 255, 0.06);
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
 .modal {
     display: flex;
     flex-direction: column;
@@ -707,4 +800,5 @@ a {
 
 .product__item-icon {
     cursor: pointer;
+
 }
