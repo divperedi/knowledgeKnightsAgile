@@ -463,7 +463,7 @@ a {
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    padding: 4rem 0;
+    padding: 3rem 0;
 }
 
 .status__orderinfo {
