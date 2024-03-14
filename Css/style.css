@@ -197,7 +197,7 @@ a {
     border-radius: 50%;
     right: 16px;
     top: 16px;
-    z-index: 1; 
+    z-index: 1;
 }
 
 .product__cart-icon {
@@ -496,7 +496,7 @@ a {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
     padding: 2rem 0;
 }
 
