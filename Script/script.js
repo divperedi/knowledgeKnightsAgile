@@ -6,7 +6,11 @@ import { openNav, closeNav } from "./navSlider.js";
 
 window.addEventListener('DOMContentLoaded', async () => {
     console.log('DOM loaded');
-    fetchCoffee();
+    if (document.title === 'About') {
+        attachEventListeners();
+    } else if (document.title === 'Product') {
+        fetchCoffee();
+    }
 });
 
 async function fetchCoffee() {
