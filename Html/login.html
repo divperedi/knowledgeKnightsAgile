@@ -10,46 +10,58 @@
 
 <body>
 
-    <header class="header header--dark">
-        <img class="header-img" src="../Assets/graphics-header.svg" alt="">
+    <div class="login__wrapper">
 
-        <!-- Nav -->
+    <header class="header--dark">
         <nav class="product__nav">
             <section class="product__nav-hamburger">
                 <img class="product__hamburger-icon" src="../Assets/navicon.svg" alt="hamburger menu icon">
             </section>
         </nav>
     </header>
-
+    
     <main>
-        <div class="login-page__wrapper">
-        <section class="login-page__form-wrapper">
-            <img class="login-page__icon" src="../Assets/logo-sml.svg" alt="Small Airbean icon logo">
-            <h1 class="login-page__heading">Välkommen till AirBean-familjen!</h1>
-            <p class="login-page__info-text">Genom att skapa ett konto nedan kan du spara och se din orderhistorik.</p>
-        
-            <form action="#">
-                <label for="name">Namn</label>
-                <input type="text" class="login-page__input" id="name" name="name" value="Sixten Kaffelövér" required>
-        
-                <label for="email">Epost</label>
-                <input type="email" class="login-page__input" id="email" name="email" value="sixten.kaffelover@zocom.se" required>
-        
-                <label for="gdpr approval" class="login-page__gdpr-radio">
-                    <input type="radio" class="login-page__gdpr-input" id="gdpr" name="gdpr" required>
-                    GDPR Ok!
+
+        <section class="login__form-wrapper">      
+            <form class="login__form" action="#">
+
+                <img class="login__icon" src="../Assets/logo-sml.svg" alt="Small Airbean icon logo">
+
+                <h1 class="login__heading">Välkommen till AirBean-familjen!</h1>
+                <p class="login__info-text">Genom att skapa ett konto nedan kan du spara och se din orderhistorik.</p>
+                
+                <label for="username">
+                    <div class="login__message login__message--error">Användarnamnet är upptaget</div>
+                    <input type="text" class="login__input" autofocus id="name" name="name" placeholder="Användarnamn" required>
+                </label>                
+                
+                <label for="email">
+                <div class="login__message login__message--error">Inkorrekt epostadress</div>
+                    <input type="email" class="login__input" id="email" name="email" placeholder="Epost" required>
                 </label>
 
-                
+                <label for="password">
+                    <div class="login__message login__message--error">Lösenordet måste vara minst åtta tecken långt</div>
+                    <input type="password" class="login__input" id="password" name="password" placeholder="Lösenord" required>
+                </label>
         
-                <button type="submit" class="login-page__sumbit-btn">Brew me a cup!</button>
+                <label for="gdpr approval" class="login__gdpr-radio">
+                    <input type="radio" class="login__gdpr-input" id="gdpr" name="gdpr" required>
+                    GDPR Ok!
+                    <div class="login__message login__message--error login__message--GDPR">Du måste godkänna GDPR</div>
+                </label>
+
+                <p class="login__login">
+                    <a class="login__login__link" id="linkLogin" >Har du redan ett konto? Logga in</a>
+                </p>
+
+                <button type="submit" class="login__sumbit-btn">Brew me a cup!</button>
             </form>
         </section>
+
     </main>
 </div>
 
-    <!-- SCRIPT FÖR INLOGGNING GOES HERE-->
-    <!-- <script src="./...../script.js" type="module"></script> -->
+    <script src="../script/script.js" type="module"></script>
 </body>
-
 </html>
