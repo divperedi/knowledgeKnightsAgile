@@ -497,7 +497,7 @@ a {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    padding: 3rem 0;
+    padding: 2rem 0;
 }
 
 .status__orderinfo {
