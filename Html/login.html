@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/style.css">
+    <title>Login</title>
+</head>
+
+<body>
+
+    <header class="header header--dark">
+        <img class="header-img" src="../Assets/graphics-header.svg" alt="">
+
+        <!-- Nav -->
+        <nav class="product__nav">
+            <section class="product__nav-hamburger">
+                <img class="product__hamburger-icon" src="../Assets/navicon.svg" alt="hamburger menu icon">
+            </section>
+        </nav>
+    </header>
+
+    <main>
+        <div class="login-page__wrapper">
+            <section class="login-page__form-wrapper">
+                <img class="login-page__icon" src="../Assets/logo-sml.svg" alt="Small Airbean icon logo">
+                <h1 class="login-page__heading">Välkommen till AirBean-familjen!</h1>
+                <p class="login-page__info-text">Genom att skapa ett konto nedan kan du spara och se din orderhistorik.
+                </p>
+
+                <form action="#">
+                    <label for="name">Namn</label>
+                    <input type="text" class="login-page__input" id="name" name="name" value="Sixten Kaffelövér"
+                        required>
+
+                    <label for="email">Epost</label>
+                    <input type="email" class="login-page__input" id="email" name="email"
+                        value="sixten.kaffelover@zocom.se" required>
+
+                    <label for="gdpr approval" class="login-page__gdpr-radio">
+                        <input type="radio" class="login-page__gdpr-input" id="gdpr" name="gdpr" required>
+                        GDPR Ok!
+                    </label>
+
+
+
+                    <button type="submit" class="login-page__sumbit-btn">Brew me a cup!</button>
+                </form>
+            </section>
+    </main>
+    </div>
+
+    <!-- Nav slider  -->
+    <div class="nav-page__wrapper" id="navPage">
+
+        <button class="nav-page__close-btn">
+            <img class="nav-page__close-icon" src="../assets/close.svg" alt="Close menu">
+        </button>
+
+        <nav class="nav-page__menu">
+            <ul>
+                <li><a href="#">Meny</a></li>
+                <hr>
+                <li><a href="#">Vårt Kaffe</a></li>
+                <hr>
+                <li><a href="#">Min Profil</a></li>
+                <hr>
+                <li><a href="#">Orderstatus</li>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="/Script/script.js" type="module"></script>
+</body>
+
+</html>
