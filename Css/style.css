@@ -391,7 +391,15 @@ a {
     font-weight: 700;
     text-align: center;
     color: white;
-    font-size: 22px;
+    font-size: 30px;
+}
+
+.status__distance {
+    font-family: "work sans";
+    font-weight: 700;
+    text-align: center;
+    color: white;
+    font-size: 28px;
 }
 
 .status__time-value {
