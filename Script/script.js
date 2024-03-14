@@ -5,11 +5,7 @@ import { lazyLoadApi } from "./lazyLoader.js";
 
 window.addEventListener('DOMContentLoaded', async () => {
     console.log('DOM loaded');
-    if (document.title === 'About') {
-        attachEventListeners();
-    } else if (document.title === 'Product page') {
-        fetchCoffee();
-    }
+    fetchCoffee();
 });
 
 async function fetchCoffee() {
@@ -53,12 +49,14 @@ async function renderMenu(data) {
 function attachEventListeners(data) {
     document.querySelector('.product__nav-cart').addEventListener('click', (event) => {
         const isModalOpen = document.querySelector('.modal') !== null;
+    
         if (isModalOpen) {
             event.preventDefault();
         } else {
             createModal(data);
         }
     });
+    
     const addIconItems = document.querySelectorAll('.product__item-icon');
     addIconItems.forEach(addIconItem => {
         addIconItem.addEventListener('click', () => {
@@ -100,24 +98,24 @@ function createModal() {
 function populateModal() {
     const modalContent = document.querySelector('.modal-content');
 
-    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-    if (cartItems.length === 0) {
-        modalContent.innerHTML = '<p>Your cart is empty... :(</p>';
+if (cartItems.length === 0) {
+    modalContent.innerHTML = '<p>Your cart is empty... :(</p>';
 
-        const closeButton = document.createElement('span');
-        closeButton.classList.add('close-button');
-        closeButton.innerHTML = '&times;';
+    const closeButton = document.createElement('span');
+    closeButton.classList.add('close-button');
+    closeButton.innerHTML = '&times;';
 
-        const modal = document.querySelector('.modal');
-        closeButton.addEventListener('click', () => {
-            modal.remove();
-        });
+    const modal= document.querySelector('.modal');
+    closeButton.addEventListener('click', () => {
+        modal.remove();
+    });
 
-        modalContent.appendChild(closeButton);
+    modalContent.appendChild(closeButton);
 
-        return;
-    }
+    return;
+}
 
     const productInfoContainer = document.createElement('div');
     productInfoContainer.classList.add('product-info-container');
@@ -165,7 +163,7 @@ function populateModal() {
 
         productDiv.appendChild(amountContainer);
 
-        productInfoContainer.appendChild(productDiv);
+        productInfoContainer.appendChild(productDiv);   
 
         decreaseAmount.addEventListener('click', () => {
             updateAmount(amountSpan, -1);
@@ -251,7 +249,7 @@ function updateAmount(amountSpan, change) {
     if (isNaN(totalPrice)) {
         console.log(`Total price is NaN.`);
     }
-    totalPriceValue.textContent = `${totalPrice.toFixed(0)} kr`;
+    totalPriceValue.textContent = `${totalPrice.toFixed(0)} kr`; 
 }
 
 function removeProduct(amountSpan) {
@@ -271,15 +269,15 @@ function removeProduct(amountSpan) {
         const modalContent = document.querySelector('.modal-content');
         modalContent.innerHTML = '<p>Your cart is empty... :(</p>';
 
-        const closeButton = document.createElement('span');
-        closeButton.classList.add('close-button');
-        closeButton.innerHTML = '&times;';
+    const closeButton = document.createElement('span');
+    closeButton.classList.add('close-button');
+    closeButton.innerHTML = '&times;';
 
-        const modal = document.querySelector('.modal');
-        closeButton.addEventListener('click', () => {
-            modal.remove();
-        });
+    const modal= document.querySelector('.modal');
+    closeButton.addEventListener('click', () => {
+        modal.remove();
+    });
 
-        modalContent.appendChild(closeButton);
+    modalContent.appendChild(closeButton);
     }
 }
