@@ -468,8 +468,19 @@ a {
     margin: 2.2rem auto .5rem;
 }
 
-.login-page__sumbit-btn:hover {
-    background-color: #2f2926ec;
+.login-page__sumbit-btn:hover,
+.login-page__sumbit-btn:focus {
+    background-color: var(--main-green);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.login-page__sumbit-btn:active {
+    transform: translateY(2px);
+}
+
+.login__sumbit-btn {
+    color: white;
 }
 
 /* Status-Page-Styling */
@@ -550,6 +561,27 @@ a {
     font-weight: 700;
     font-family: "PT Serif";
     cursor: pointer;
+}
+
+.status__btn:hover,
+.status__btn:focus {
+    background-color: var(--main-green);
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+}
+
+.status__btn:active {
+    transform: translateY(2px);
+}
+
+.status__btn-link {
+    color: var(--airbean-brown);
+}
+
+.status__btn-link:hover,
+.status__btn-link:focus {
+    color: white;
 }
 
 
