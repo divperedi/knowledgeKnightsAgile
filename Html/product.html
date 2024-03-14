@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../Css/style.css">
-    <title>Product page</title>
+    <title>Product</title>
 </head>
-<body class="product__body">
+
+<body class="product__body" id="productPage">
     <header class="header">
         <img class="header-img" src="../Assets/graphics-header.svg" alt="">
-                <!-- Nav -->
+        <!-- Nav -->
         <nav class="product__nav">
             <section class="product__nav-hamburger">
                 <img class="product__hamburger-icon" src="/Assets/navicon.svg" alt="hamburger menu icon">
@@ -31,6 +33,29 @@
     <footer class="product__footer">
         <img class="product__footer-img" src="../Assets/graphics-footer.svg" alt="floral footer">
     </footer>
-    <script src="../Script/script.js" type="module"></script>
+
+    <!-- Nav slider  -->
+
+    <div class="nav-page__wrapper" id="navPage">
+
+        <button class="nav-page__close-btn">
+            <img class="nav-page__close-icon" src="../assets/close.svg" alt="Close menu">
+        </button>
+
+        <nav class="nav-page__menu">
+            <ul>
+                <li><a href="#">Meny</a></li>
+                <hr>
+                <li><a href="#">Vårt Kaffe</a></li>
+                <hr>
+                <li><a href="#">Min Profil</a></li>
+                <hr>
+                <li><a href="#">Orderstatus</li>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="/Script/script.js" type="module"></script>
 </body>
+
 </html>
