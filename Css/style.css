@@ -228,10 +228,6 @@ a {
     font-weight: 700;
 }
 
-.product__products {
-    margin-bottom: 90px;
-}
-
 .product__menu-list {
     display: flex;
     align-items: center;
@@ -291,17 +287,9 @@ a {
     font-weight: 400;
 }
 
-.product__footer {
-    position: fixed;
-    bottom: 0;
-    width: 100vw;
-    display: block;
-}
-
 .product__footer-img {
     width: 100%;
-    height: auto;
-    vertical-align: middle;
+    vertical-align: bottom;
 }
 
 .header {

@@ -49,6 +49,12 @@ async function renderMenu(data) {
         menuList.appendChild(productCard);
     });
     attachEventListeners(data);
+    const ProductFooter = document.querySelector('.product__footer');
+    const ProductFooterimg = document.createElement('img');
+    ProductFooterimg.classList.add('product__footer-img');
+    ProductFooterimg.src = '../Assets/graphics-footer.svg';
+    ProductFooterimg.alt = 'floral footer';
+    ProductFooter.appendChild(ProductFooterimg);
 }
 
 function attachEventListeners(data) {
