@@ -22,6 +22,8 @@ async function fetchCoffee() {
     }
 }
 
+
+// LAZY LOADER
 async function renderMenu(data) {
     await lazyLoadApi(data);
     const menuList = document.querySelector('.product__products');
@@ -299,3 +301,21 @@ NavClose.addEventListener(`click`, () => {
     closeNav();
     console.log(`closeNav klickad`);
 });
+
+// LOGGAIN / REGISTRERA 
+document.addEventListener("DOMContentLoaded", () => {
+    const loginForm = document.querySelector("#login");
+    const createAccountForm = document.querySelector("#createAccount");
+  
+    document.querySelector("#linkLogin").addEventListener("click", e => {
+        e.preventDefault();
+        createAccountForm.classList.add("login__form--hidden");
+        loginForm.classList.remove("login__form--hidden");
+    });
+
+    document.querySelector("#linkCreateAccount").addEventListener("click", e => {
+        e.preventDefault();
+        createAccountForm.classList.remove("login__form--hidden");
+        loginForm.classList.add("login__form--hidden");
+    });
+  });
