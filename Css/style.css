@@ -358,7 +358,7 @@ a {
 /* LOGIN PAGE */
 .login__wrapper {
     margin: 0 auto;
-    height: 100vh;
+    height: 110vh;
     display: flex;
     align-items: flex-start;
     justify-content: center;
