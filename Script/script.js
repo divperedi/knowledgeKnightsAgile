@@ -10,6 +10,8 @@ window.addEventListener('DOMContentLoaded', async () => {
         attachEventListeners();
     } else if (document.title === 'Product') {
         fetchCoffee();
+    } else if (document.title === 'Status') {
+        randomOrderNumber();
     }
 });
 
@@ -312,7 +314,6 @@ NavClose.addEventListener(`click`, () => {
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.querySelector("#login");
     const createAccountForm = document.querySelector("#createAccount");
-  
     document.querySelector("#linkLogin").addEventListener("click", e => {
         e.preventDefault();
         createAccountForm.classList.add("login__form--hidden");
@@ -324,4 +325,20 @@ document.addEventListener("DOMContentLoaded", () => {
         createAccountForm.classList.remove("login__form--hidden");
         loginForm.classList.add("login__form--hidden");
     });
-  });
+});
+
+// Status page -- unika ordernummer
+function randomOrderNumber() {
+    const orderNumberElement = document.querySelector('.status__ordernbr');
+    function generateOrderNumber(length = 7) {
+        let result = '';
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        const charactersLength = characters.length;
+        for (let i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return `#${result}`;
+    }
+    const randomOrdernbr = generateOrderNumber();
+    orderNumberElement.textContent = randomOrdernbr;
+}
