@@ -53,4 +53,8 @@ loginBtnRef.addEventListener(`click`, () => {
     loginFunction();
 });
 
+}
+
+
+
 export { loginFunction };

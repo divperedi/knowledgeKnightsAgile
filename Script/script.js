@@ -321,6 +321,9 @@ NavClose.addEventListener(`click`, () => {
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.querySelector("#login");
     const createAccountForm = document.querySelector("#createAccount");
+  
+    document.querySelector("#linkLogin").addEventListener("click", () => {
+        // e.preventDefault();
 
     document.querySelector("#linkLogin").addEventListener("click", e => {
         e.preventDefault();
@@ -328,8 +331,8 @@ document.addEventListener("DOMContentLoaded", () => {
         loginForm.classList.remove("login__form--hidden");
     });
 
-    document.querySelector("#linkCreateAccount").addEventListener("click", e => {
-        e.preventDefault();
+    document.querySelector("#linkCreateAccount").addEventListener("click", () => {
+        // e.preventDefault();
         createAccountForm.classList.remove("login__form--hidden");
         loginForm.classList.add("login__form--hidden");
     });

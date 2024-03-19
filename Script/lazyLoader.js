@@ -20,7 +20,6 @@ const lazyLoadApi = async (url) => {
         // Ta bort loader-bilden efter 2 sekunder
         loadingImg.remove();
         h1Ref.classList.remove(`d-none`);
-
         // Skriv ut ett errormeddelande
     } catch (error) {
         console.error(`Loader element not found`, error);
