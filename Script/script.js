@@ -10,9 +10,9 @@ window.addEventListener('DOMContentLoaded', async () => {
     console.log('DOM loaded');
     fetchUser();
     loginFunction();
-
     if (document.title === 'About') {
         attachEventListeners();
+        updateCart();
     } else if (document.title === 'Product') {
         fetchCoffee();
     } else if (document.title === 'Status') {
