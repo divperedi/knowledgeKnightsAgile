@@ -3,9 +3,15 @@
 import apiHandler from "./apiHandler.js";
 import { lazyLoadApi } from "./lazyLoader.js";
 import { openNav, closeNav } from "./navSlider.js";
+import { fetchUser } from "./users.js";
+import { loginFunction } from "./validateLogin.js";
 
 window.addEventListener('DOMContentLoaded', async () => {
     console.log('DOM loaded');
+
+    fetchUser();
+    loginFunction();
+
     if (document.title === 'About') {
         attachEventListeners();
     } else if (document.title === 'Product') {
@@ -25,8 +31,9 @@ async function fetchCoffee() {
 }
 
 
-// LAZY LOADER
+
 async function renderMenu(data) {
+    // LAZY LOADER
     await lazyLoadApi(data);
     const menuList = document.querySelector('.product__products');
 
@@ -314,6 +321,7 @@ NavClose.addEventListener(`click`, () => {
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.querySelector("#login");
     const createAccountForm = document.querySelector("#createAccount");
+
     document.querySelector("#linkLogin").addEventListener("click", e => {
         e.preventDefault();
         createAccountForm.classList.add("login__form--hidden");
@@ -325,6 +333,9 @@ document.addEventListener("DOMContentLoaded", () => {
         createAccountForm.classList.remove("login__form--hidden");
         loginForm.classList.add("login__form--hidden");
     });
+
+});
+
 });
 
 // Status page -- unika ordernummer
@@ -342,3 +353,4 @@ function randomOrderNumber() {
     const randomOrdernbr = generateOrderNumber();
     orderNumberElement.textContent = randomOrdernbr;
 }
+
