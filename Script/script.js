@@ -21,6 +21,11 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
+// FETCHING DATA FROM API
+
+// Fetches data from url,
+// calls the renderMenu function with fetched data,
+// in case of error logs it to console
 async function fetchCoffee() {
     try {
         const data = await apiHandler.fetchData('https://santosnr6.github.io/Data/airbeanproducts.json');
@@ -30,8 +35,12 @@ async function fetchCoffee() {
     }
 }
 
+// CREATING MENU
 
-
+// Takes data array, clears the existing menu list,
+// for each item in the data array creates new menu item with image, add icon, 
+// title and price, appends them to menu list,
+// attaches event listeners to data, appends footer img to 'product__footer'
 async function renderMenu(data) {
     // LAZY LOADER
     await lazyLoadApi(data);
@@ -41,21 +50,23 @@ async function renderMenu(data) {
 
     data.forEach(item => {
         const productCard = document.createElement('ul');
+
         productCard.classList.add('product__menu-list');
 
         const addIconItem = document.createElement('li');
         addIconItem.classList.add('product__item-icon');
         addIconItem.innerHTML = '<img class="menu-item-add" src="/Assets/add.svg" alt="add icon">';
 
+        const imageItem = document.createElement('img');
+        imageItem.classList.add('product__item-image');
+        imageItem.src = item.image;
+        imageItem.alt = item.title;
+
         const titleDescItem = document.createElement('li');
         titleDescItem.classList.add('product__item-text');
-        titleDescItem.innerHTML = `<span class="item-title">${item.title}</span><br><span class="item-desc">${item.desc}</span>`;
+        titleDescItem.innerHTML = `<span class="item-title">${item.title}</span><br><span class="product__item-price">${item.price + 'kr'}</span>`;
 
-        const priceItem = document.createElement('li');
-        priceItem.classList.add('product__item-price');
-        priceItem.textContent = item.price + 'kr';
-
-        productCard.append(addIconItem, titleDescItem, priceItem);
+        productCard.append(addIconItem, imageItem, titleDescItem);
 
         menuList.appendChild(productCard);
     });
@@ -68,6 +79,15 @@ async function renderMenu(data) {
     ProductFooter.appendChild(ProductFooterimg);
 }
 
+// ADDING EVENT LISTENERS TO SHOPPING CART, ADD ICON, 
+// PRODUCT IMAGE AND DESCRIPTION
+
+// Attaches click event listeners to 'product__nav-cart',
+// and each product image and text,
+// checks if modal is open, if not - creates modal, 
+// for each 'product__item-icon' -
+// stores the corresponding product data to local storage 
+// and logs a message to the console
 function attachEventListeners(data) {
 
     document.querySelector('.product__nav-cart').addEventListener('click', (event) => {
@@ -89,14 +109,126 @@ function attachEventListeners(data) {
             console.log('Item added to local storage:', product);
         });
     });
+
+    const productImages = document.querySelectorAll('.product__item-image');
+    const productTexts = document.querySelectorAll('.product__item-text');
+
+    productImages.forEach((image, index) => {
+        image.addEventListener('click', () => {
+            const product = data[index];
+            createModalDetails(product);
+        });
+    });
+
+    productTexts.forEach((text, index) => {
+        text.addEventListener('click', () => {
+            const product = data[index];
+            createModalDetails(product);
+        });
+    });
 }
 
+// STORING PRODUCTS IN LOCAL STORAGE
+
+// Takes product object, gets items that are in the cart from local storage, 
+//adds product to the cart items with amount of 1, and then stores updated cart items back to local storage
 function storeProductToLocalStorage(product) {
     const existingCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    existingCartItems.push({ ...product, amount: 1 });
+    const existingProduct = existingCartItems.find(item => item.id === product.id);
+
+    if (existingProduct) {
+        existingProduct.amount += 1;
+    } else {
+        existingCartItems.push({ ...product, amount: 1 });
+    }
+
     localStorage.setItem('cartItems', JSON.stringify(existingCartItems));
 }
 
+// CREATING POP UP WINDOW FOR EVERY PRODUCT
+
+// Dynamically creates modal with detailed info about product - 
+// image, title, price, rating, description, 
+// appends them to the html
+function createModalDetails(item) {
+    const modal = document.createElement('div');
+    modal.classList.add('details-modal');
+
+    const detailsContainer = document.createElement('section');
+    detailsContainer.classList.add('details-modal-content');
+
+    const productImage = document.createElement('img');
+    productImage.src = item.image; 
+    productImage.alt = item.title;
+    productImage.classList.add('product-image');
+
+    const descriptionContainer = document.createElement('div');
+    descriptionContainer.classList.add('description-container');
+
+    const titleElement = document.createElement('p');
+    titleElement.textContent = item.title;
+    titleElement.classList.add('product-title');
+
+    const priceElement = document.createElement('p');
+    priceElement.textContent = `${item.price} kr`;
+    priceElement.classList.add('product-price');
+
+    const ratingElement = document.createElement('p');
+    ratingElement.textContent = `Rating: ${item.rating}`;
+    ratingElement.classList.add('product-rating');
+
+    const longerDescElement = document.createElement('p');
+    longerDescElement.textContent = item.longer_desc;
+    longerDescElement.classList.add('product-longer-desc');
+
+    descriptionContainer.append(titleElement, priceElement, ratingElement, longerDescElement);
+    
+    const closeButton = document.createElement('span');
+    closeButton.classList.add('close-button');
+    closeButton.innerHTML = '&times;';
+
+    detailsContainer.appendChild(productImage);
+    detailsContainer.appendChild(descriptionContainer);
+    detailsContainer.appendChild(closeButton);
+
+    modal.appendChild(detailsContainer);
+
+    document.body.appendChild(modal);
+
+    closeButton.addEventListener('click', () => {
+        modal.remove();
+    });
+
+    setupModalCloseButton();
+}
+
+// ADDING CLOSE BUTTON TO POP UP PRODUCT +
+// EVENT LISTENER TO REMOVE MODAL 
+
+// Adds close button to modal,
+// sets up event listener to remove modal from DOM 
+// when close button is clicked
+function setupModalCloseButton() {
+    const modalContent = document.querySelector('.details-modal-content');
+
+        const closeButton = document.createElement('span');
+        closeButton.classList.add('close-button');
+        closeButton.innerHTML = '&times;';
+
+        modalContent.appendChild(closeButton);
+
+        closeButton.addEventListener('click', () => {
+            modalContent.closest('.details-modal').remove();
+        });
+}
+
+// CREATING POP UP CART
+
+// Creates new modal section with close button, 
+// appends it to the page,
+// attaches click event listener to close button,
+// it removes modal when clicked, 
+// calls the populateModal function
 function createModal() {
     const modal = document.createElement('section');
     modal.className = 'modal';
@@ -115,16 +247,24 @@ function createModal() {
         modal.remove();
     });
 
-    populateModal();
+    setTimeout(() => {
+        populateModal();
+    }, 50);
 }
 
+// CREATING CONTENT INSIDE POP UP CART
+
+// Populates modal with cart items stored in local storage, 
+// creating elements for each item's title, price, quantity,
+// increase and decrease functionality, total price, take my money btn
+// if the cart is empty - displays message
 function populateModal() {
     const modalContent = document.querySelector('.modal-content');
 
     const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
     if (cartItems.length === 0) {
-        modalContent.innerHTML = '<p>Your cart is empty... :(</p>';
+        modalContent.innerHTML = '<p class="empty-cart">Your cart is empty... :(</p>';
 
         const closeButton = document.createElement('span');
         closeButton.classList.add('close-button');
@@ -166,23 +306,23 @@ function populateModal() {
         const amountContainer = document.createElement('div');
         amountContainer.classList.add('amount-container');
 
-        const increaseAmount = document.createElement('img');
-        increaseAmount.src = '/Assets/arrow-up.svg';
-        increaseAmount.alt = 'Increase amount';
-        increaseAmount.classList.add('amount-button', 'increase');
+        const decreaseAmount = document.createElement('button');
+        decreaseAmount.textContent = '-';
+        decreaseAmount.alt = 'Decrease amount';
+        decreaseAmount.classList.add('amount-button', 'decrease');
 
         const amountSpan = document.createElement('span');
         amountSpan.textContent = '1';
         amountSpan.classList.add('product-amount');
 
-        const decreaseAmount = document.createElement('img');
-        decreaseAmount.src = '/Assets/arrow-down.svg';
-        decreaseAmount.alt = 'Decrease amount';
-        decreaseAmount.classList.add('amount-button', 'decrease');
+        const increaseAmount = document.createElement('button');
+        increaseAmount.textContent = '+';
+        increaseAmount.alt = 'Increase amount';
+        increaseAmount.classList.add('amount-button', 'increase');
 
-        amountContainer.appendChild(increaseAmount);
-        amountContainer.appendChild(amountSpan);
         amountContainer.appendChild(decreaseAmount);
+        amountContainer.appendChild(amountSpan);
+        amountContainer.appendChild(increaseAmount);
 
         productDiv.appendChild(amountContainer);
 
@@ -232,6 +372,12 @@ function populateModal() {
     });
 }
 
+// KEEPING TOTAL PRICE UPDATED
+
+// Updates quantity of products in cart, 
+// recalculates price for that product and total price,
+// displays them in modal,
+// if product amount is less than 1 - removes it from cart
 function updateAmount(amountSpan, change) {
     let amount = parseInt(amountSpan.textContent);
     amount += change;
@@ -248,6 +394,8 @@ function updateAmount(amountSpan, change) {
     const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     cartItems.forEach(item => {
         if (item.title === productTitle) {
+            item.amount = amount;
+
             const productDiv = amountSpan.closest('.product-div');
             const priceElement = productDiv.querySelector('.product-price');
             const unitPrice = parseFloat(item.price);
@@ -275,6 +423,13 @@ function updateAmount(amountSpan, change) {
     totalPriceValue.textContent = `${totalPrice.toFixed(0)} kr`;
 }
 
+// UPDATING LOCAL STORAGE ON CHANGES IN CART,
+// CREATING CLOSE BUTTON TO LEAVE EMPTY CART
+
+// Removes product from cart and local storage, 
+// updates total price displayed in modal, 
+// if cart becomes empty - updates modal content to display message 
+// and close button that removes modal when clicked
 function removeProduct(amountSpan) {
     const productTitle = amountSpan.parentNode.parentNode.querySelector('.product-title').textContent;
     let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
@@ -290,7 +445,7 @@ function removeProduct(amountSpan) {
 
     if (cartItems.length === 0) {
         const modalContent = document.querySelector('.modal-content');
-        modalContent.innerHTML = '<p>Your cart is empty... :(</p>';
+        modalContent.innerHTML = '<p class="empty-cart">Your cart is empty... :(</p>';
 
         const closeButton = document.createElement('span');
         closeButton.classList.add('close-button');
