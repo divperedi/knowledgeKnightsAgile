@@ -514,21 +514,20 @@ a {
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 110vh;
+    height: 100vh;
     background-color: var(--airbrean-orange);
+    
 }
 
 .status__container {
-    position: absolute;
-    /*width: 80%;*/
-    margin: 0 auto;
+    margin: 5rem auto 5rem auto;
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    /*padding: 2rem 0;*/
 }
 
 .status__orderinfo {
+    margin-top: -1rem;
     text-align: center;
     font-family: "work sans";
     font-size: 16px;
@@ -544,7 +543,7 @@ a {
 
 .status__img,
 .status__btn {
-    width: 50%;
+    width: 40%;
     margin: 0 auto;
 }
 
@@ -552,27 +551,29 @@ a {
     text-align: center;
     font-family: "PT Serif";
     font-weight: 700;
-    font-size: 36px;
-    color: white;
-    line-height: 42px;
+    font-size: 22px;
+    color: white;   
+    line-height: 28px;
     width: 80%;
     margin: 0 auto;
 }
 
 .status__time {
+    margin-top: -1rem;
     font-family: "work sans";
     font-weight: 700;
     text-align: center;
     color: white;
-    font-size: 30px;
+    font-size: 18px;
 }
 
 .status__distance {
+    margin-top: -1rem;
     font-family: "work sans";
-    font-weight: 700;
+    font-weight: 400;
     text-align: center;
-    color: rgb(0, 0, 0);
-    font-size: 28px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
 }
 
 .status__time-value {
@@ -581,10 +582,11 @@ a {
 }
 
 .status__btn {
+    width: 35%;
     padding: 8px 16px;
     background-color: white;
     border: none;
-    border-radius: 20px;
+    border-radius: 4px;
     font-size: 24px;
     font-weight: 700;
     font-family: "PT Serif";
