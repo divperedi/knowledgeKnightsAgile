@@ -21,9 +21,6 @@ const lazyLoadApi = async (url) => {
         loadingImg.remove();
         h1Ref.classList.remove(`d-none`);
 
-        // Efter att loader-bilden har tagits bort körs apiHandler.js
-        // Anropa fetchData från apiHandler.js
-        // const data = await apiHandler.fetchData(`https://santosnr6.github.io/Data/airbeanproducts.json`);
     } catch (error) {
         console.error(`Loader element not found`, error);
     }
