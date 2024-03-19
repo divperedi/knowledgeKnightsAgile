@@ -301,6 +301,7 @@ a {
 .product__footer-img {
     width: 100%;
     vertical-align: bottom;
+    margin-top: 3rem;
 }
 
 .header {
@@ -368,7 +369,7 @@ a {
 /* LOGIN PAGE */
 .login__wrapper {
     margin: 0 auto;
-    height: 110vh;
+    min-height: 100vh;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -380,12 +381,11 @@ a {
 
 
 .login__form-wrapper {
-    margin: auto;
-    transform: translateY(15%);
+    margin: 5rem auto 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 75vw;
+    min-width: 50vw;
     max-width: 90%;
     background-color: var(--background-beige);
     box-shadow: 0 0 40px rgba(67, 67, 67, 0.6);
@@ -511,18 +511,21 @@ a {
 /* Status-Page-Styling */
 
 .status__wrapper {
+    display: flex;
+    justify-content: center;
     width: 100%;
-    height: 100vh;
+    height: 110vh;
     background-color: var(--airbrean-orange);
 }
 
 .status__container {
-    width: 80%;
+    position: absolute;
+    /*width: 80%;*/
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    padding: 2rem 0;
+    /*padding: 2rem 0;*/
 }
 
 .status__orderinfo {
@@ -568,7 +571,7 @@ a {
     font-family: "work sans";
     font-weight: 700;
     text-align: center;
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 28px;
 }
 
@@ -607,6 +610,22 @@ a {
 .status__btn-link:hover,
 .status__btn-link:focus {
     color: white;
+}
+
+#arrow-btn {
+    align-self: center;
+    margin-top: 1rem;
+}
+
+/* Map-container */
+
+#map {
+    box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.9);
+    border-radius: var(--border-radius);
+    align-self: center;
+    position: relative;
+    height: 350px;
+    width: 350px;
 }
 
 

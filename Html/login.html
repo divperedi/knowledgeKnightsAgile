@@ -34,25 +34,25 @@
 
                     <label for="username" class="login__input-group">
                         <div class="login__message login__message--error"></div>
-                        <input type="text" class="login__input" autofocus id="name" name="name"
+                        <input type="text" class="login__input" autofocus id="username-signup" name="name"
                             placeholder="Användarnamn" required>
                     </label>
 
                     <label for="email" class="login__input-group">
                         <div class="login__message login__message--error"></div>
-                        <input type="email" class="login__input" id="email" name="email" placeholder="E-postadress"
+                        <input type="email" class="login__input" id="email-signup" name="email" placeholder="E-postadress"
                             required>
                     </label>
 
                     <label for="password" class="login__input-group">
                         <div class="login__message login__message--error"></div>
-                        <input type="password" class="login__input" id="password" name="password" placeholder="Lösenord"
+                        <input type="password" class="login__input" id="password2-signup" name="password" placeholder="Lösenord"
                             required>
                     </label>
 
                     <label for="password" class="login__input-group">
                         <div class="login__message login__message--error"></div>
-                        <input type="password" class="login__input" id="password" name="password"
+                        <input type="password" class="login__input" id="password1-signup" name="password"
                             placeholder="Bekräfta lösenord" required>
                     </label>
 
@@ -68,7 +68,7 @@
                         <a class="login__login__link" link="#" id="linkLogin">Har du redan ett konto? Logga in</a>
                     </p>
 
-                    <button type="submit" class="login__sumbit-btn">Brew me up!</button>
+                    <button type="submit" class="login__sumbit-btn" id="signupBtn">Brew me up!</button>
                 </form>
             </section>
             <!-- SIGNUP END -->
@@ -85,13 +85,13 @@
 
                     <label for="email" class="login__input-group">
                         <div class="login__message login__message--error"></div>
-                        <input type="email" class="login__input" id="email" name="email"
+                        <input type="text" class="login__input" id="username-login" name="username"
                             placeholder="Användarnamn eller epostadress" required>
                     </label>
 
                     <label for="password" class="login__input-group">
                         <div class="login__message login__message--error"></div>
-                        <input type="password" class="login__input" id="password" name="password" placeholder="Lösenord"
+                        <input type="password" class="login__input" id="password-login" name="password" placeholder="Lösenord"
                             required>
                     </label>
 
@@ -100,7 +100,7 @@
                             konto</a>
                     </p>
 
-                    <button type="submit" class="login__sumbit-btn">Brew me in!</button>
+                    <button type="submit" class="login__sumbit-btn" id="loginBtn">Brew me in!</button>
                 </form>
             </section>
             <!-- LOGIN END -->
@@ -124,12 +124,12 @@
                 <hr>
                 <li><a href="./login.html">Min Profil</a></li>
                 <hr>
-                <li><a href="./status.html">Orderstatus</li>
+                <li><a href="./status.html">Orderstatus</a></li>
             </ul>
         </nav>
     </div>
 
-    <script src="/Script/script.js" type="module"></script>
+    <script src="../Script/script.js" type="module"></script>
 </body>
 
 </html>
