@@ -8,7 +8,6 @@ import { loginFunction } from "./validateLogin.js";
 
 window.addEventListener('DOMContentLoaded', async () => {
     console.log('DOM loaded');
-
     fetchUser();
     loginFunction();
 
@@ -49,6 +48,8 @@ async function renderMenu(data) {
     menuList.innerHTML = '';
 
     data.forEach(item => {
+        document.querySelector(`.product__main-heading`).textContent = `Meny`;
+
         const productCard = document.createElement('ul');
 
         productCard.classList.add('product__menu-list');
@@ -67,8 +68,8 @@ async function renderMenu(data) {
         titleDescItem.innerHTML = `<span class="item-title">${item.title}</span><br><span class="product__item-price">${item.price + 'kr'}</span>`;
 
         productCard.append(addIconItem, imageItem, titleDescItem);
-
         menuList.appendChild(productCard);
+        updateCart();
     });
     attachEventListeners(data);
     const ProductFooter = document.querySelector('.product__footer');
@@ -92,7 +93,6 @@ function attachEventListeners(data) {
 
     document.querySelector('.product__nav-cart').addEventListener('click', (event) => {
         const isModalOpen = document.querySelector('.modal') !== null;
-
         if (isModalOpen) {
             event.preventDefault();
         } else {
@@ -107,6 +107,7 @@ function attachEventListeners(data) {
             const product = data[index];
             storeProductToLocalStorage(product);
             console.log('Item added to local storage:', product);
+            addOrder();
         });
     });
 
@@ -158,7 +159,7 @@ function createModalDetails(item) {
     detailsContainer.classList.add('details-modal-content');
 
     const productImage = document.createElement('img');
-    productImage.src = item.image; 
+    productImage.src = item.image;
     productImage.alt = item.title;
     productImage.classList.add('product-image');
 
@@ -182,7 +183,7 @@ function createModalDetails(item) {
     longerDescElement.classList.add('product-longer-desc');
 
     descriptionContainer.append(titleElement, priceElement, ratingElement, longerDescElement);
-    
+
     const closeButton = document.createElement('span');
     closeButton.classList.add('close-button');
     closeButton.innerHTML = '&times;';
@@ -211,15 +212,15 @@ function createModalDetails(item) {
 function setupModalCloseButton() {
     const modalContent = document.querySelector('.details-modal-content');
 
-        const closeButton = document.createElement('span');
-        closeButton.classList.add('close-button');
-        closeButton.innerHTML = '&times;';
+    const closeButton = document.createElement('span');
+    closeButton.classList.add('close-button');
+    closeButton.innerHTML = '&times;';
 
-        modalContent.appendChild(closeButton);
+    modalContent.appendChild(closeButton);
 
-        closeButton.addEventListener('click', () => {
-            modalContent.closest('.details-modal').remove();
-        });
+    closeButton.addEventListener('click', () => {
+        modalContent.closest('.details-modal').remove();
+    });
 }
 
 // CREATING POP UP CART
@@ -330,10 +331,12 @@ function populateModal() {
 
         decreaseAmount.addEventListener('click', () => {
             updateAmount(amountSpan, -1);
+            removeOrder();
         });
 
         increaseAmount.addEventListener('click', () => {
             updateAmount(amountSpan, 1);
+            addOrder();
         });
     });
 
@@ -508,4 +511,21 @@ function randomOrderNumber() {
     }
     const randomOrdernbr = generateOrderNumber();
     orderNumberElement.textContent = randomOrdernbr;
+}
+
+// function för att räkna antal produkter i varukorgen
+let totalorder = 0;
+function addOrder() {
+    totalorder++;
+    updateCart();
+}
+function removeOrder() {
+    totalorder--;
+    updateCart();
+}
+function updateCart() {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    totalorder = cartItems.reduce((total, item) => total + item.amount, 0);
+    const totalorderElement = document.querySelector('#totalorder');
+    totalorderElement.textContent = totalorder;
 }
