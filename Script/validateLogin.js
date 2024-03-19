@@ -45,6 +45,7 @@ const loginFunction = async () => {
         // Visa ett felmeddelande till användaren
         document.querySelector(`#msg`).textContent = 'Fel användarnamn eller lösenord';
     }
+}
 
 // Lägg till en händelselyssnare på inloggningsknappen
 const loginBtnRef = document.querySelector(`#loginBtn`);

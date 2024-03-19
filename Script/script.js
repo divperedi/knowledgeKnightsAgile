@@ -3,13 +3,21 @@
 import apiHandler from "./apiHandler.js";
 import { lazyLoadApi } from "./lazyLoader.js";
 import { openNav, closeNav } from "./navSlider.js";
+import { fetchUser } from "./users.js";
+import { loginFunction } from "./validateLogin.js";
 
 window.addEventListener('DOMContentLoaded', async () => {
     console.log('DOM loaded');
+
+    fetchUser();
+    loginFunction();
+
     if (document.title === 'About') {
         attachEventListeners();
     } else if (document.title === 'Product') {
         fetchCoffee();
+    } else if (document.title === 'Status') {
+        randomOrderNumber();
     }
 });
 
@@ -23,8 +31,9 @@ async function fetchCoffee() {
 }
 
 
-// LAZY LOADER
+
 async function renderMenu(data) {
+    // LAZY LOADER
     await lazyLoadApi(data);
     const menuList = document.querySelector('.product__products');
 
@@ -315,6 +324,9 @@ document.addEventListener("DOMContentLoaded", () => {
   
     document.querySelector("#linkLogin").addEventListener("click", () => {
         // e.preventDefault();
+
+    document.querySelector("#linkLogin").addEventListener("click", e => {
+        e.preventDefault();
         createAccountForm.classList.add("login__form--hidden");
         loginForm.classList.remove("login__form--hidden");
     });
@@ -324,4 +336,24 @@ document.addEventListener("DOMContentLoaded", () => {
         createAccountForm.classList.remove("login__form--hidden");
         loginForm.classList.add("login__form--hidden");
     });
-  });
+
+});
+
+});
+
+// Status page -- unika ordernummer
+function randomOrderNumber() {
+    const orderNumberElement = document.querySelector('.status__ordernbr');
+    function generateOrderNumber(length = 7) {
+        let result = '';
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        const charactersLength = characters.length;
+        for (let i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return `#${result}`;
+    }
+    const randomOrdernbr = generateOrderNumber();
+    orderNumberElement.textContent = randomOrdernbr;
+}
+

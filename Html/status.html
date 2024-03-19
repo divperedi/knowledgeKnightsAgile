@@ -6,16 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Status</title>
     <link rel="stylesheet" href="../Css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
 </head>
 
 <body>
     <div class="status__wrapper">
         <div class="status__container">
-            <p class="status__orderinfo">Ordernummer <span class="status__ordernbr">#12DV23F</span></p>
+            <p class="status__orderinfo">Ordernummer <span class="status__ordernbr"></span></p>
             <img class="status__img" src="../Assets/drone.svg" alt="drone">
             <h1 class="status__title">Din beställning är på väg!</h1>
             <p class="status__time"><span class="status__time-value"></span></p>
             <p class="status__distance"></p>
+            <i class="fa-solid fa-arrow-down fa-bounce fa-2xl" id="arrow-btn"></i>
+            <div id="map"></div>
+            </article>
             <button class="status__btn">
                 <a class="status__btn-link" href="./product.html">Ok, cool!</a>
             </button>
@@ -26,6 +32,8 @@
 
 <script type="module" src="../Script/script.js"></script>
 <script src="/Script/deliveryTime.js" type="module"></script>
+<script src="https://kit.fontawesome.com/98705120bb.js" crossorigin="anonymous"></script>
+
 
 
 
