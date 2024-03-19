@@ -5,8 +5,8 @@
 
 const lazyLoadApi = async (url) => {
     try {
-        const h1Ref = document.querySelector(`.product__main-heading`)
-        h1Ref.classList.add(`d-none`);
+        const sectionRef = document.querySelector(`.product__main-heading`)
+        sectionRef.classList.add(`d-none`);
         const ul = document.querySelector(`.product__main`);
         const loadingImg = document.createElement(`img`);
         loadingImg.classList.add(`lazy-loader`);
@@ -21,9 +21,7 @@ const lazyLoadApi = async (url) => {
         loadingImg.remove();
         h1Ref.classList.remove(`d-none`);
 
-        // Efter att loader-bilden har tagits bort körs apiHandler.js
-        // Anropa fetchData från apiHandler.js
-        // const data = await apiHandler.fetchData(`https://santosnr6.github.io/Data/airbeanproducts.json`);
+        // Skriv ut ett errormeddelande
     } catch (error) {
         console.error(`Loader element not found`, error);
     }
