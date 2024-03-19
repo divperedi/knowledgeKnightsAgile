@@ -43,15 +43,13 @@ const loginFunction = async () => {
     } catch (error) {
         console.error('Fel vid inloggning:', error);
         // Visa ett felmeddelande till användaren
-        document.querySelector(`#msg`).textContent = 'Fel användarnamn eller lösenord';
+        document.querySelector(`.login__message--error`).textContent = 'Fel användarnamn eller lösenord';
     }
-}
-
-// Lägg till en händelselyssnare på inloggningsknappen
-const loginBtnRef = document.querySelector(`#loginBtn`);
-loginBtnRef.addEventListener(`click`, () => {
-    loginFunction();
-});
+    // Lägg till en händelselyssnare på inloggningsknappen
+    const loginBtnRef = document.querySelector(`#loginBtn`);
+    loginBtnRef.addEventListener(`click`, () => {
+        loginFunction();
+    });
 
 }
 
