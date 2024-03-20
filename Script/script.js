@@ -418,7 +418,7 @@ function updateAmount(amountSpan, change) {
 
     let totalPrice = 0;
     cartItems.forEach(item => {
-        totalPrice += parseFloat(item.price) * item.amount; 
+        totalPrice += parseFloat(item.price) * item.amount;
     });
 
     const totalPriceValue = document.querySelector('.total-price-value');
@@ -523,3 +523,53 @@ function updateCart() {
     const totalorderElement = document.querySelector('#totalorder');
     totalorderElement.textContent = totalorder;
 }
+
+function profilOrderTable() {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    const tableElement = document.createElement('table');
+    tableElement.classList.add('profile-order__table');
+
+    const tableHeader = document.createElement('tr');
+    tableHeader.classList.add('profile-order__row');
+    tableHeader.innerHTML = `
+        <th class="profile-order__cell">Produkt</th>
+        <th class="profile-order__cell">Pris</th>
+        <th class="profile-order__cell">Antal</th>
+        <th class="profile-order__cell">Total</th>
+        <th class="profile-order__cell">Ta bort</th>
+        <th class="profile-order__cell">Lägg till</th>
+    `;
+    tableElement.appendChild(tableHeader);
+
+    cartItems.forEach(item => {
+        const row = document.createElement('tr');
+        row.classList.add('profile-order__row');
+        row.innerHTML = `
+            <td class="profile-order__cell">${item.title}</td>
+            <td class="profile-order__cell">${item.price} kr</td>
+            <td class="profile-order__cell">${item.amount}</td>
+            <td class="profile-order__cell">${(item.amount * parseFloat(item.price)).toFixed(2)} kr</td>
+            <td class="profile-order__cell"> <button class="amount-button decrease">-</button></td>
+            <td class="profile-order__cell"><button class="amount-button increase">+</button></td>
+        `;
+        tableElement.appendChild(row);
+    });
+
+    const container = document.querySelector('.profile-order__container');
+    container.insertBefore(tableElement, container.childNodes[2]);
+
+    const increaseButtons = document.querySelectorAll('.increase');
+    increaseButtons.forEach(button => {
+        button.addEventListener('click', () => {
+        });
+    });
+
+    const decreaseButtons = document.querySelectorAll('.decrease');
+    decreaseButtons.forEach(button => {
+        button.addEventListener('click', () => {
+        });
+    });
+
+}
+
+profilOrderTable();
