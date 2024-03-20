@@ -8,11 +8,13 @@ import { loginFunction, fetchUserInfo } from "./validateLogin.js";
 
 window.addEventListener('DOMContentLoaded', async () => {
     console.log('DOM loaded');
-
     fetchUser();
+
+    loginFunction();
 
     if (document.title === 'About') {
         attachEventListeners();
+        updateCart();
     } else if (document.title === 'Product') {
         fetchCoffee();
     } else if (document.title === 'Status') {
@@ -50,6 +52,8 @@ async function renderMenu(data) {
     menuList.innerHTML = '';
 
     data.forEach(item => {
+        document.querySelector(`.product__main-heading`).textContent = `Meny`;
+
         const productCard = document.createElement('ul');
 
         productCard.classList.add('product__menu-list');
@@ -68,8 +72,8 @@ async function renderMenu(data) {
         titleDescItem.innerHTML = `<span class="item-title">${item.title}</span><br><span class="product__item-price">${item.price + 'kr'}</span>`;
 
         productCard.append(addIconItem, imageItem, titleDescItem);
-
         menuList.appendChild(productCard);
+        updateCart();
     });
     attachEventListeners(data);
     const ProductFooter = document.querySelector('.product__footer');
@@ -93,7 +97,6 @@ function attachEventListeners(data) {
 
     document.querySelector('.product__nav-cart').addEventListener('click', (event) => {
         const isModalOpen = document.querySelector('.modal') !== null;
-
         if (isModalOpen) {
             event.preventDefault();
         } else {
@@ -108,6 +111,7 @@ function attachEventListeners(data) {
             const product = data[index];
             storeProductToLocalStorage(product);
             console.log('Item added to local storage:', product);
+            addOrder();
         });
     });
 
@@ -159,7 +163,7 @@ function createModalDetails(item) {
     detailsContainer.classList.add('details-modal-content');
 
     const productImage = document.createElement('img');
-    productImage.src = item.image; 
+    productImage.src = item.image;
     productImage.alt = item.title;
     productImage.classList.add('product-image');
 
@@ -183,7 +187,7 @@ function createModalDetails(item) {
     longerDescElement.classList.add('product-longer-desc');
 
     descriptionContainer.append(titleElement, priceElement, ratingElement, longerDescElement);
-    
+
     const closeButton = document.createElement('span');
     closeButton.classList.add('close-button');
     closeButton.innerHTML = '&times;';
@@ -212,15 +216,15 @@ function createModalDetails(item) {
 function setupModalCloseButton() {
     const modalContent = document.querySelector('.details-modal-content');
 
-        const closeButton = document.createElement('span');
-        closeButton.classList.add('close-button');
-        closeButton.innerHTML = '&times;';
+    const closeButton = document.createElement('span');
+    closeButton.classList.add('close-button');
+    closeButton.innerHTML = '&times;';
 
-        modalContent.appendChild(closeButton);
+    modalContent.appendChild(closeButton);
 
-        closeButton.addEventListener('click', () => {
-            modalContent.closest('.details-modal').remove();
-        });
+    closeButton.addEventListener('click', () => {
+        modalContent.closest('.details-modal').remove();
+    });
 }
 
 // CREATING POP UP CART
@@ -331,10 +335,12 @@ function populateModal() {
 
         decreaseAmount.addEventListener('click', () => {
             updateAmount(amountSpan, -1);
+            removeOrder();
         });
 
         increaseAmount.addEventListener('click', () => {
             updateAmount(amountSpan, 1);
+            addOrder();
         });
     });
 
@@ -392,7 +398,7 @@ function updateAmount(amountSpan, change) {
 
     const productTitle = amountSpan.parentNode.parentNode.querySelector('.product-title').textContent;
 
-    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     cartItems.forEach(item => {
         if (item.title === productTitle) {
             item.amount = amount;
@@ -408,13 +414,11 @@ function updateAmount(amountSpan, change) {
         }
     });
 
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
     let totalPrice = 0;
     cartItems.forEach(item => {
-        if (item.title === productTitle) {
-            totalPrice += parseFloat(item.price) * amount;
-        } else {
-            totalPrice += parseFloat(item.price);
-        }
+        totalPrice += parseFloat(item.price) * item.amount; 
     });
 
     const totalPriceValue = document.querySelector('.total-price-value');
@@ -501,4 +505,21 @@ function randomOrderNumber() {
     }
     const randomOrdernbr = generateOrderNumber();
     orderNumberElement.textContent = randomOrdernbr;
+}
+
+// function för att räkna antal produkter i varukorgen
+let totalorder = 0;
+function addOrder() {
+    totalorder++;
+    updateCart();
+}
+function removeOrder() {
+    totalorder--;
+    updateCart();
+}
+function updateCart() {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    totalorder = cartItems.reduce((total, item) => total + item.amount, 0);
+    const totalorderElement = document.querySelector('#totalorder');
+    totalorderElement.textContent = totalorder;
 }

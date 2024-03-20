@@ -3,8 +3,6 @@
 
 const lazyLoadApi = async (url) => {
     try {
-        const sectionRef = document.querySelector(`.product__main-heading`)
-        sectionRef.classList.add(`d-none`);
         const ul = document.querySelector(`.product__main`);
         const loadingImg = document.createElement(`img`);
         loadingImg.classList.add(`lazy-loader`);
@@ -17,7 +15,6 @@ const lazyLoadApi = async (url) => {
 
         // Ta bort loader-bilden efter 2 sekunder
         loadingImg.remove();
-        h1Ref.classList.remove(`d-none`);
         // Skriv ut ett errormeddelande
     } catch (error) {
         console.error(`Loader element not found`, error);

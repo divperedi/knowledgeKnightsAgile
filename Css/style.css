@@ -229,9 +229,16 @@ a {
     font-weight: 700;
 }
 
+.product__products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+
 .product__menu-list {
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
     padding: 20px 20px;
 }
 
@@ -244,7 +251,7 @@ a {
 
 .product__item-image {
     object-fit: cover;
-    width: 50%;
+    max-width: 30%;
     aspect-ratio: 1 / 1;
     border-radius: 0.8rem;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
@@ -317,7 +324,9 @@ a {
 }
 
 .about-main__container {
-    max-width: 100%;
+    max-width: 80%;
+    min-width: 50%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -325,7 +334,7 @@ a {
 
 .about-info__container {
     padding: 1rem;
-    max-width: 60%;
+    text-align: justify;
 }
 
 .about-main__title {
@@ -516,21 +525,20 @@ a {
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 110vh;
+    height: 100vh;
     background-color: var(--airbrean-orange);
+    
 }
 
 .status__container {
-    position: absolute;
-    /*width: 80%;*/
-    margin: 0 auto;
+    margin: 5rem auto 5rem auto;
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    /*padding: 2rem 0;*/
 }
 
 .status__orderinfo {
+    margin-top: -1rem;
     text-align: center;
     font-family: "work sans";
     font-size: 16px;
@@ -546,7 +554,7 @@ a {
 
 .status__img,
 .status__btn {
-    width: 50%;
+    width: 40%;
     margin: 0 auto;
 }
 
@@ -554,27 +562,29 @@ a {
     text-align: center;
     font-family: "PT Serif";
     font-weight: 700;
-    font-size: 36px;
-    color: white;
-    line-height: 42px;
+    font-size: 22px;
+    color: white;   
+    line-height: 28px;
     width: 80%;
     margin: 0 auto;
 }
 
 .status__time {
+    margin-top: -1rem;
     font-family: "work sans";
     font-weight: 700;
     text-align: center;
     color: white;
-    font-size: 30px;
+    font-size: 18px;
 }
 
 .status__distance {
+    margin-top: -1rem;
     font-family: "work sans";
-    font-weight: 700;
+    font-weight: 400;
     text-align: center;
-    color: rgb(0, 0, 0);
-    font-size: 28px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
 }
 
 .status__time-value {
@@ -583,10 +593,11 @@ a {
 }
 
 .status__btn {
+    width: 35%;
     padding: 8px 16px;
     background-color: white;
     border: none;
-    border-radius: 20px;
+    border-radius: 4px;
     font-size: 24px;
     font-weight: 700;
     font-family: "PT Serif";
@@ -638,10 +649,11 @@ a {
 }
 
 .lazy-loader {
-    
-    width: 7rem;
     position: absolute;
-    top: 40%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 7rem;
 }
 
 /* Profile-page-styling */
@@ -755,15 +767,16 @@ a {
     overflow: auto;
     background-color: rgba(29, 27, 27, 0.935);
     color: white;
+    border-radius: var(--border-radius);
 }
 
 .details-modal-content {
     color: var(--airbean-brown);
-    height: 100vh;
-    overflow: auto;
-    background-color: #fefefe;
+    overflow: scroll;
+    background-color: var(--background-beige);
     margin: 15% auto;
-    width: 95%;
+    min-width: 50vw;
+    max-width: 90vw;
     border-radius: var(--border-radius);
     font-family: "Work Sans", sans-serif;
     font-weight: 400;
@@ -774,6 +787,7 @@ a {
     flex-direction: column;
     justify-content: space-around;
     margin-top: 89px;
+    position: relative;
 }
 
 .modal {
@@ -811,12 +825,14 @@ a {
 
 .modal-content {
     color: var(--airbean-brown);
-    height: 100vh;
+    max-height: 100vh;
+    min-height: 50vh;
     overflow: scroll;
     background-color: #fefefe;
     margin: 15% auto;
     padding: 20px;
-    width: 95%;
+    min-width: 50vw;
+    max-width: 90vw;
     border-radius: var(--border-radius);
     font-family: "Work Sans", sans-serif;
     font-weight: 400;
@@ -828,6 +844,7 @@ a {
     justify-content: space-between;
     align-items: center;
     gap: 20px;
+    position: relative;
 }
 
 .close-button {
@@ -835,9 +852,12 @@ a {
     float: right;
     font-size: 28px;
     font-weight: bold;
-    top: 16%;
-    right: 7%;
+    top: 0;
+    right: 0;
     position: absolute;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
 }
 
 .close-button:hover,
@@ -933,6 +953,8 @@ a {
 .product-image {
     object-fit: cover;
     aspect-ratio: 1 / 1;
+    min-width: 50vw;
+    max-width: 90vw;
 }
 
 .total-price-text {
@@ -996,7 +1018,13 @@ a {
 }
 
 .empty-cart {
-    padding-top: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    padding: 10px;
 }
 
 .description-container {
