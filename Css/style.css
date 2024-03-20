@@ -486,6 +486,7 @@ a {
 
 .login__login__link {
     cursor: pointer;
+    color: black;
 }
 
 .login__login__link:hover {
@@ -679,9 +680,11 @@ a {
 
 .profile-avatar__img {
     margin-bottom: 1rem;
-    width: 94px;
-    height: 94px;
-
+    /* width: 94px;
+    height: 94px; */
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
 }
 
 .profile-avatar__name {

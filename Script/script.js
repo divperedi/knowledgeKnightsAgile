@@ -4,12 +4,14 @@ import apiHandler from "./apiHandler.js";
 import { lazyLoadApi } from "./lazyLoader.js";
 import { openNav, closeNav } from "./navSlider.js";
 import { fetchUser } from "./users.js";
-import { loginFunction } from "./validateLogin.js";
+import { loginFunction, fetchUserInfo } from "./validateLogin.js";
 
 window.addEventListener('DOMContentLoaded', async () => {
     console.log('DOM loaded');
     fetchUser();
+
     loginFunction();
+
     if (document.title === 'About') {
         attachEventListeners();
         updateCart();
@@ -17,6 +19,8 @@ window.addEventListener('DOMContentLoaded', async () => {
         fetchCoffee();
     } else if (document.title === 'Status') {
         randomOrderNumber();
+    } else if (document.title === `Profile`) {
+        fetchUserInfo();
     }
 });
 
@@ -465,35 +469,27 @@ function removeProduct(amountSpan) {
 const NavOpen = document.querySelector('.product__nav-hamburger');
 NavOpen.addEventListener('click', () => {
     openNav();
-    console.log(`openNav klickad`);
 });
 const NavClose = document.querySelector(`.nav-page__close-icon`);
 NavClose.addEventListener(`click`, () => {
     closeNav();
-    console.log(`closeNav klickad`);
 });
 
 // LOGGAIN / REGISTRERA 
-document.addEventListener("DOMContentLoaded", () => {
-    const loginForm = document.querySelector("#login");
-    const createAccountForm = document.querySelector("#createAccount");
+// document.addEventListener("DOMContentLoaded", () => {
+//     const loginForm = document.querySelector("#login");
+//     const createAccountForm = document.querySelector("#createAccount");
 
-    document.querySelector("#linkLogin").addEventListener("click", () => {
-        // e.preventDefault();
+//         document.querySelector("#linkLogin").addEventListener("click", () => {
+//             createAccountForm.classList.add("login__form--hidden");
+//             loginForm.classList.remove("login__form--hidden");
+//         });
 
-        document.querySelector("#linkLogin").addEventListener("click", () => {
-            // e.preventDefault();
-            createAccountForm.classList.add("login__form--hidden");
-            loginForm.classList.remove("login__form--hidden");
-        });
-
-        document.querySelector("#linkCreateAccount").addEventListener("click", () => {
-            // e.preventDefault();
-            createAccountForm.classList.remove("login__form--hidden");
-            loginForm.classList.add("login__form--hidden");
-        });
-    });
-});
+//         document.querySelector("#linkCreateAccount").addEventListener("click", () => {
+//             createAccountForm.classList.remove("login__form--hidden");
+//             loginForm.classList.add("login__form--hidden");
+//         });
+// });
 
 // Status page -- unika ordernummer
 function randomOrderNumber() {
