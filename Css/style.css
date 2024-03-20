@@ -68,11 +68,16 @@ a {
 }
 
 .main__logo {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 3;
+    gap: 1rem;
 }
 
 
@@ -85,6 +90,34 @@ a {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.button__container {
+    width: 80%;
+    gap: .5rem;
+    display: flex;
+    flex-direction: column;
+}
+.log-reg__btn,
+.guest__btn {
+    font-weight: 400;
+    font-family: "Work Sans", sans-serif;
+    padding: .5rem 1rem;
+    border-radius: var(--border-radius);
+    background-color: var(--airbrean-orange);
+    cursor: pointer;
+    border: none;
+}
+
+.log-reg__btn:hover,
+.guest__btn:hover {
+    color: var(--background-beige);
+    background-color: var(--airbean-brown);
+}
+
+.log-reg__btn:active,
+.guest__btn:active {
+    transform: scale(0.98);
 }
 
 
@@ -132,7 +165,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    font-size: 32px;
+    font-size: 22px;
 }
 
 .nav-page__menu a {
@@ -145,7 +178,7 @@ a {
 
 .nav-page__menu li {
     text-align: center;
-    margin: 33px;
+    margin: 2rem;
 }
 
 .nav-page__menu hr {
@@ -154,6 +187,27 @@ a {
     opacity: 0.2;
 
 }
+
+.navreg-btn {
+    font-weight: 400;
+    font-family: "Work Sans", sans-serif;
+    padding: .5rem 1rem;
+    border-radius: var(--border-radius);
+    background-color: var(--airbrean-orange);
+    cursor: pointer;
+    border: none;
+}
+
+
+.navreg-btn:hover {
+    background-color: var(--airbrean-orange);
+    opacity: 80%;
+}
+
+.navreg-btn:active {
+    transform: scale(0.98);
+}    
+
 
 /* About-Page-Styling */
 
@@ -502,7 +556,7 @@ a {
     color: white;
     font-family: 'PT serif';
     font-weight: bold;
-    padding: .7rem 2rem 1rem;
+    padding: .5rem 2rem .8rem;
     border: none;
     border-radius: 5rem;
     font-size: 21px;
@@ -1003,7 +1057,7 @@ a {
     font-family: "PT Serif", serif;
     font-weight: 700;
     cursor: pointer;
-    padding: 10px;
+    padding: .5rem 1rem .8rem;
 }
 
 .take-my-money-button:hover,
