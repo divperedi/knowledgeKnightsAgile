@@ -394,7 +394,7 @@ function updateAmount(amountSpan, change) {
 
     const productTitle = amountSpan.parentNode.parentNode.querySelector('.product-title').textContent;
 
-    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     cartItems.forEach(item => {
         if (item.title === productTitle) {
             item.amount = amount;
@@ -410,13 +410,11 @@ function updateAmount(amountSpan, change) {
         }
     });
 
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
     let totalPrice = 0;
     cartItems.forEach(item => {
-        if (item.title === productTitle) {
-            totalPrice += parseFloat(item.price) * amount;
-        } else {
-            totalPrice += parseFloat(item.price);
-        }
+        totalPrice += parseFloat(item.price) * item.amount; 
     });
 
     const totalPriceValue = document.querySelector('.total-price-value');
