@@ -1,8 +1,6 @@
 
 // Lazy loader function
 
-// import apiHandler from "./apiHandler.js";
-
 const lazyLoadApi = async (url) => {
     try {
         const sectionRef = document.querySelector(`.product__main-heading`)
