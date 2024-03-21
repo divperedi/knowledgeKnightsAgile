@@ -58,7 +58,7 @@ function showPosition(position) {
   L.marker([latitude, longitude]).addTo(map)
     .bindPopup('Här är du').openPopup();
 
-    map.flyTo([latitude, longitude], 15, {
+    map.flyTo([latitude, longitude], 10, {
       animate: true,
       duration: 5
     });
