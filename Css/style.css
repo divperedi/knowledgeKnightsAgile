@@ -444,6 +444,17 @@ a {
     background-size: 100%;
 }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
 
 .login__form-wrapper {
     margin: 5rem auto 0 auto;
@@ -523,8 +534,10 @@ a {
 .signup__input-group .error {
     margin: .3rem 0;
     text-align: left;
-    font-size: 15px;
+    font-size: 13px;
     color: rgb(255, 0, 0);
+    font-family: 'Work Sans';
+    font-weight: 300;
 }
 
 .login__message {
