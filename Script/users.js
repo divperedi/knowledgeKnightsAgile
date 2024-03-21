@@ -1,5 +1,4 @@
 // Användare
-
 const fetchUser = async () => {
     try {
         const response = await fetch(`https://santosnr6.github.io/Data/airbeanusers.json`);

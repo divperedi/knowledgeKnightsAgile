@@ -4,13 +4,12 @@ import apiHandler from "./apiHandler.js";
 import { lazyLoadApi } from "./lazyLoader.js";
 import { openNav, closeNav } from "./navSlider.js";
 import { fetchUser } from "./users.js";
-import { loginFunction, fetchUserInfo } from "./validateLogin.js";
+import { fetchUserInfo } from "./validateLogin.js";
+import { setError, setSuccess, isValidEmail } from "./validateSignup.js";
 
 window.addEventListener('DOMContentLoaded', async () => {
     console.log('DOM loaded');
     fetchUser();
-
-    loginFunction();
 
     if (document.title === 'About') {
         attachEventListeners();
@@ -21,6 +20,10 @@ window.addEventListener('DOMContentLoaded', async () => {
         randomOrderNumber();
     } else if (document.title === `Profile`) {
         fetchUserInfo();
+    } else if (document.title === `Registrera`) {
+        isValidEmail();
+        setError();
+        setSuccess();
     }
 });
 
