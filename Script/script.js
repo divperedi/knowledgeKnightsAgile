@@ -10,7 +10,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     console.log('DOM loaded');
     fetchUser();
 
-    loginFunction();
 
     if (document.title === 'About') {
         attachEventListeners();
@@ -21,6 +20,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         randomOrderNumber();
     } else if (document.title === `Profile`) {
         fetchUserInfo();
+        profilOrderTable();
     }
 });
 
@@ -475,21 +475,6 @@ NavClose.addEventListener(`click`, () => {
     closeNav();
 });
 
-// LOGGAIN / REGISTRERA 
-// document.addEventListener("DOMContentLoaded", () => {
-//     const loginForm = document.querySelector("#login");
-//     const createAccountForm = document.querySelector("#createAccount");
-
-//         document.querySelector("#linkLogin").addEventListener("click", () => {
-//             createAccountForm.classList.add("login__form--hidden");
-//             loginForm.classList.remove("login__form--hidden");
-//         });
-
-//         document.querySelector("#linkCreateAccount").addEventListener("click", () => {
-//             createAccountForm.classList.remove("login__form--hidden");
-//             loginForm.classList.add("login__form--hidden");
-//         });
-// });
 
 // Status page -- unika ordernummer
 function randomOrderNumber() {
@@ -604,4 +589,3 @@ function updateQuantity(title, change) {
     }
 }
 
-profilOrderTable();
