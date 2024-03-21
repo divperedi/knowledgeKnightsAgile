@@ -586,10 +586,10 @@ a {
 }
 
 .status__container {
-    margin: 5rem auto 5rem auto;
+    margin: 2rem auto 2rem auto;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .status__orderinfo {
@@ -653,7 +653,7 @@ a {
     background-color: white;
     border: none;
     border-radius: 4px;
-    font-size: 24px;
+    font-size: 12px;
     font-weight: 700;
     font-family: "PT Serif";
     cursor: pointer;
@@ -688,7 +688,6 @@ a {
 /* Map-container */
 
 #map {
-    box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.9);
     border-radius: var(--border-radius);
     align-self: center;
     position: relative;
