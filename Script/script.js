@@ -10,7 +10,6 @@ import { setError, setSuccess, isValidEmail } from "./validateSignup.js";
 window.addEventListener('DOMContentLoaded', async () => {
     console.log('DOM loaded');
     fetchUser();
-
     if (document.title === 'About') {
         attachEventListeners();
         updateCart();
@@ -24,6 +23,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         isValidEmail();
         setError();
         setSuccess();
+        profilOrderTable();
     }
 });
 
@@ -478,21 +478,6 @@ NavClose.addEventListener(`click`, () => {
     closeNav();
 });
 
-// LOGGAIN / REGISTRERA 
-// document.addEventListener("DOMContentLoaded", () => {
-//     const loginForm = document.querySelector("#login");
-//     const createAccountForm = document.querySelector("#createAccount");
-
-//         document.querySelector("#linkLogin").addEventListener("click", () => {
-//             createAccountForm.classList.add("login__form--hidden");
-//             loginForm.classList.remove("login__form--hidden");
-//         });
-
-//         document.querySelector("#linkCreateAccount").addEventListener("click", () => {
-//             createAccountForm.classList.remove("login__form--hidden");
-//             loginForm.classList.add("login__form--hidden");
-//         });
-// });
 
 // Status page -- unika ordernummer
 function randomOrderNumber() {
@@ -516,10 +501,12 @@ function addOrder() {
     totalorder++;
     updateCart();
 }
+
 function removeOrder() {
     totalorder--;
     updateCart();
 }
+
 function updateCart() {
     const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     totalorder = cartItems.reduce((total, item) => total + item.amount, 0);
@@ -528,22 +515,31 @@ function updateCart() {
 }
 
 function profilOrderTable() {
+    const container = document.querySelector('.profile-order__container');
+    let tableElement = container.querySelector('.profile-order__table');
+    
+    if (!tableElement) {
+        tableElement = document.createElement('table');
+        tableElement.classList.add('profile-order__table');
+        
+        const tableHeader = document.createElement('tr');
+        tableHeader.classList.add('profile-order__row');
+        tableHeader.innerHTML = `
+            <th class="profile-order__cell">Produkt</th>
+            <th class="profile-order__cell">Pris</th>
+            <th class="profile-order__cell">Antal</th>
+            <th class="profile-order__cell">Total</th>
+            <th class="profile-order__cell">Ta bort</th>
+            <th class="profile-order__cell">Lägg till</th>
+        `;
+        tableElement.appendChild(tableHeader);
+        
+        container.appendChild(tableElement);
+    }
+    
     const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
-    const tableElement = document.createElement('table');
-    tableElement.classList.add('profile-order__table');
-
-    const tableHeader = document.createElement('tr');
-    tableHeader.classList.add('profile-order__row');
-    tableHeader.innerHTML = `
-        <th class="profile-order__cell">Produkt</th>
-        <th class="profile-order__cell">Pris</th>
-        <th class="profile-order__cell">Antal</th>
-        <th class="profile-order__cell">Total</th>
-        <th class="profile-order__cell">Ta bort</th>
-        <th class="profile-order__cell">Lägg till</th>
-    `;
-    tableElement.appendChild(tableHeader);
-
+    const tbody = document.createElement('tbody');
+    
     cartItems.forEach(item => {
         const row = document.createElement('tr');
         row.classList.add('profile-order__row');
@@ -555,24 +551,43 @@ function profilOrderTable() {
             <td class="profile-order__cell"> <button class="amount-button decrease">-</button></td>
             <td class="profile-order__cell"><button class="amount-button increase">+</button></td>
         `;
-        tableElement.appendChild(row);
+        tbody.appendChild(row);
     });
-
-    const container = document.querySelector('.profile-order__container');
-    container.insertBefore(tableElement, container.childNodes[2]);
+    
+    const existingTbody = tableElement.querySelector('tbody');
+    if (existingTbody) {
+        tableElement.replaceChild(tbody, existingTbody);
+    } else {
+        tableElement.appendChild(tbody);
+    }
 
     const increaseButtons = document.querySelectorAll('.increase');
     increaseButtons.forEach(button => {
         button.addEventListener('click', () => {
+            const title = button.parentNode.parentNode.querySelector('.profile-order__cell:first-child').textContent;
+            updateQuantity(title, 1);
         });
     });
 
     const decreaseButtons = document.querySelectorAll('.decrease');
     decreaseButtons.forEach(button => {
         button.addEventListener('click', () => {
+            const title = button.parentNode.parentNode.querySelector('.profile-order__cell:first-child').textContent;
+            updateQuantity(title, -1);
         });
     });
-
 }
 
-profilOrderTable();
+function updateQuantity(title, change) {
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    const item = cartItems.find(item => item.title === title);
+
+    if (item) {
+        item.amount += change;
+        if (item.amount <= 0) {
+            cartItems = cartItems.filter(item => item.title !== title);
+        }
+        localStorage.setItem('cartItems', JSON.stringify(cartItems));
+        profilOrderTable();
+    }
+}
