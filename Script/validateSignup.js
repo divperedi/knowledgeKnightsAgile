@@ -1,35 +1,38 @@
 import { fetchUser } from "./users.js";
 
-const createAccount = document.getElementById('createAccount');
 const usernameSignup = document.getElementById('usernameSignup');
 const emailSignup = document.getElementById('emailSignup');
 const passwordSignup = document.getElementById('passwordSignup');
 const password2Signup = document.getElementById('password2Signup');
 
-createAccount.addEventListener('submit', e => {
+document.addEventListener('DOMContentLoaded', () => {
+const createAccount = document.getElementById('createAccount');
+
+    createAccount.addEventListener('submit', e => {
     e.preventDefault();
     validateInputs();
     saveUserInfo();
     // window.location.href = '../Html/login.html';
+    });
 });
 
 const setError = (element, message) => {
-    const signupInputGroup = element.parentElement;
-    const errorDisplay = signupInputGroup.querySelector('.error');
+  const signupInputGroup = element.parentElement;
+  const errorDisplay = signupInputGroup.querySelector('.error');
 
-    errorDisplay.innerText = message;
-    signupInputGroup.classList.add('error');
-    signupInputGroup.classList.remove('success');
-    element.value = '';
+  errorDisplay.innerText = message;
+  signupInputGroup.classList.add('error');
+  signupInputGroup.classList.remove('success');
+  element.value = '';
 }
 
 const setSuccess = element => {
-    const signupInputGroup = element.parentElement;
-    const errorDisplay = signupInputGroup.querySelector('.error');
+  const signupInputGroup = element.parentElement;
+  const errorDisplay = signupInputGroup.querySelector('.error');
 
-    errorDisplay.innerText = '';
-    signupInputGroup.classList.add('success');
-    signupInputGroup.classList.remove('error');
+  errorDisplay.innerText = '';
+  signupInputGroup.classList.add('success');
+  signupInputGroup.classList.remove('error');
 };
 
 const isValidEmail = email => {
@@ -97,4 +100,4 @@ const validateInputs = () => {
     }
 };
 
-export { setError, setSuccess, isValidEmail, saveUserInfo }
+export { setError, setSuccess, isValidEmail, validateInputs }

@@ -19,11 +19,11 @@ window.addEventListener('DOMContentLoaded', async () => {
         randomOrderNumber();
     } else if (document.title === `Profile`) {
         fetchUserInfo();
+        profilOrderTable();
     } else if (document.title === `Registrera`) {
         isValidEmail();
         setError();
         setSuccess();
-        profilOrderTable();
     }
 });
 

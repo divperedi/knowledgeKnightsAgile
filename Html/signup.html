@@ -31,37 +31,35 @@
                     <p class="login__info-text">Genom att skapa ett konto nedan kan du spara och se din orderhistorik.
                     </p>
 
-                    <label for="username" class="signup__input-group">
+                    <div class="signup__input-group">
+                        <label for="username" class="visually-hidden">Användarnamn</label>
+                        <input class="signup__input" type="text" id="usernameSignup" name="username" placeholder="Användarnamn">
                         <div class="error"></div>
-                        <input type="text" class="signup__input" autofocus id="usernameSignup" name="username"
-                            placeholder="Användarnamn">
-                    </label>
-
-                    <label for="email" class="signup__input-group">
+                    </div>
+                
+                    <div class="signup__input-group">
+                        <label for="email" class="visually-hidden">E-postadress</label>
+                        <input class="signup__input" type="text" id="emailSignup" name="email" placeholder="E-postadress">
                         <div class="error"></div>
-                        <input type="text" class="signup__input" id="emailSignup" name="email"
-                            placeholder="E-postadress">
-                    </label>
-
-                    <label for="password" class="signup__input-group">
+                    </div>
+                
+                    <div class="signup__input-group">
+                        <label for="password" class="visually-hidden">Lösenord</label>
+                        <input class="signup__input" type="password" id="passwordSignup" name="password" placeholder="Lösenord">
                         <div class="error"></div>
-                        <input type="password" class="signup__input" id="passwordSignup" name="password"
-                            placeholder="Lösenord">
-                    </label>
-
-                    <label for="password" class="signup__input-group">
+                    </div>
+                
+                    <div class="signup__input-group">
+                        <label for="password2" class="visually-hidden">Bekräfta lösenord</label>
+                        <input class="signup__input" type="password" id="password2Signup" name="password2" placeholder="Bekräfta lösenord">
                         <div class="error"></div>
-                        <input type="password" class="signup__input" id="password2Signup" name="password2"
-                            placeholder="Bekräfta lösenord">
-                    </label>
-
-                    <label for="gdpr approval" class="signup__gdpr-group">
+                    </div>
+                
+                    <div class="signup__gdpr-wrapper">
+                        <input type="checkbox" id="gdpr" name="gdpr" required>
+                        <label for="gdpr" class="signup__gdpr-group">GDPR ok!</label>
                         <div class="error"></div>
-                        <div class="signup__gdpr-wrapper"><input type="radio" class="login__gdpr-input" id="gdpr"
-                                name="gdpr" required>
-                            GDPR Ok!
-                        </div>
-                    </label>
+                    </div>
 
                     <p class="login__login">
                         <a class="login__login__link" link="#" href="../Html/login.html" id="linkLogin">Har du redan ett konto? Logga in</a>
