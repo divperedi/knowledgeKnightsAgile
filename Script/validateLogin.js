@@ -24,7 +24,6 @@ const loginFunction = async () => {
         password: pWord
     };
 
-    console.log(loginData.username, loginData.password);
 
     // Hämta användarlistan från API:et
     const users = await fetchUser();
@@ -63,7 +62,6 @@ const loginFunction = async () => {
         else {
             // Om inloggningen lyckas, dirigera användaren till "profilepage.html"
             window.location.href = '../Html/profilepage.html';
-            console.log(`Du är inloggad`);
         }
 
     } catch (error) {
