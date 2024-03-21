@@ -56,13 +56,23 @@ function showPosition(position) {
 
   // Lägger till en markör på kartan
   L.marker([latitude, longitude]).addTo(map)
-    .bindPopup('Din position').openPopup();
+    .bindPopup('Här är du').openPopup();
 
     map.flyTo([latitude, longitude], 15, {
       animate: true,
       duration: 5
     });
-}
+  
+    // Lägger till fördröjning på den röda linjen
+    setTimeout(function() {
+
+      // Lägger till en linje till drottninggatan 26 (folkuniversitet) position. Drönaren utgår därifrån.
+      L.polyline([
+        [latitude, longitude],
+        [59.37955760440916, 13.497965538350723]
+      ], { color: 'red', weight: 3 }).addTo(map);
+    }, 5000); // Fördröjning på 5000 millisekunder (5 sekunder)
+  }
 
 getPosition();
 
