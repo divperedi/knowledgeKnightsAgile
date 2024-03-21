@@ -98,6 +98,7 @@ a {
     display: flex;
     flex-direction: column;
 }
+
 .log-reg__btn,
 .guest__btn {
     font-weight: 400;
@@ -206,7 +207,7 @@ a {
 
 .navreg-btn:active {
     transform: scale(0.98);
-}    
+}
 
 
 /* About-Page-Styling */
@@ -1094,7 +1095,6 @@ a {
 
 
 /* Admin profile */
-
 .profile-order__table {
     width: 100%;
     border-collapse: collapse;
@@ -1102,15 +1102,17 @@ a {
     box-shadow: 0 2px 15px rgba(64, 64, 64, .7);
     border-radius: 12px 12px 0 0;
     margin-bottom: 50px;
+    font-size: 12px;
 }
 
 .profile-order__row {
     width: 100%;
     background-color: #fafafa;
+
 }
 
 .profile-order__cell {
-    padding: 20px 16px;
+    padding: 10px 5px;
     background-color: #584e46;
     color: #fafafa;
     font-weight: bold;
@@ -1118,6 +1120,8 @@ a {
     text-align: start;
 }
 
-.profile-order__email {
-    font-size: 12px;
+@media screen and (min-width: 768px) {
+    .profile-order__cell {
+        padding: 20px 16px;
+    }
 }

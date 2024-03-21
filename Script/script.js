@@ -21,6 +21,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         randomOrderNumber();
     } else if (document.title === `Profile`) {
         fetchUserInfo();
+        profilOrderTable();
     }
 });
 
@@ -529,31 +530,34 @@ function profilOrderTable() {
     const tableElement = document.createElement('table');
     tableElement.classList.add('profile-order__table');
 
-    const tableHeader = document.createElement('tr');
-    tableHeader.classList.add('profile-order__row');
+    const tableHeader = document.createElement('thead');
     tableHeader.innerHTML = `
+    <tr>
         <th class="profile-order__cell">Produkt</th>
         <th class="profile-order__cell">Pris</th>
         <th class="profile-order__cell">Antal</th>
         <th class="profile-order__cell">Total</th>
         <th class="profile-order__cell">Ta bort</th>
         <th class="profile-order__cell">Lägg till</th>
-    `;
+    </tr>
+`;
     tableElement.appendChild(tableHeader);
-
+    const tableBody = document.createElement('tbody');
     cartItems.forEach(item => {
         const row = document.createElement('tr');
         row.classList.add('profile-order__row');
         row.innerHTML = `
-            <td class="profile-order__cell">${item.title}</td>
-            <td class="profile-order__cell">${item.price} kr</td>
-            <td class="profile-order__cell">${item.amount}</td>
-            <td class="profile-order__cell">${(item.amount * parseFloat(item.price)).toFixed(2)} kr</td>
-            <td class="profile-order__cell"> <button class="amount-button decrease">-</button></td>
-            <td class="profile-order__cell"><button class="amount-button increase">+</button></td>
-        `;
-        tableElement.appendChild(row);
+        <td class="profile-order__cell">${item.title}</td>
+        <td class="profile-order__cell">${item.price} kr</td>
+        <td class="profile-order__cell">${item.amount}</td>
+        <td class="profile-order__cell">${(item.amount * parseFloat(item.price)).toFixed(2)} kr</td>
+        <td class="profile-order__cell"><button class="amount-button decrease">-</button></td>
+        <td class="profile-order__cell"><button class="amount-button increase">+</button></td>
+    `;
+        tableBody.appendChild(row);
     });
+    tableElement.appendChild(tableBody);
+
 
     const container = document.querySelector('.profile-order__container');
     container.insertBefore(tableElement, container.childNodes[2]);
@@ -572,4 +576,3 @@ function profilOrderTable() {
 
 }
 
-profilOrderTable();
