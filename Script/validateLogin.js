@@ -11,7 +11,33 @@ if (document.title === `Login`) {
     });
 }
 
-
+const userBasedOnRole = (role) => {
+    if (role === 'admin') {
+        window.location.href = '../Html/profilepage.html';
+    } else if (role === 'user') {
+        window.location.href = '../Html/clientpage.html';
+    } else {
+        window.alert('Du har inte behörighet att logga in');
+    }
+};
+const profileLink = document.querySelector(`a[href="./profilepage.html"]`);
+if (profileLink) {
+    profileLink.addEventListener('click', (event) => {
+        event.preventDefault();
+        const userRole = localStorage.getItem('role');
+        if (userRole) {
+            if (userRole === 'admin') {
+                window.location.href = '../Html/profilepage.html';
+            } else if (userRole === 'user') {
+                window.location.href = '../Html/clientpage.html';
+            } else {
+                window.alert('Du har inte behörighet att besöka profilsidan.');
+            }
+        } else {
+            window.alert('Du måste logga in för att besöka profilsidan.');
+        }
+    });
+}
 
 const loginFunction = async () => {
 
@@ -30,6 +56,7 @@ const loginFunction = async () => {
 
     // Loopa igenom användarlistan och kontrollera inloggningsuppgifterna
     let userFound = false;
+    let userRole = '';
 
     for (let i = 0; i < users.length; i++) {
         // Hämta varje enskild användare i listan
@@ -44,6 +71,7 @@ const loginFunction = async () => {
 
             // Om användaren hittas, markera det och avsluta loopen
             userFound = true;
+            userRole = user.role;
             break;
         }
     }
@@ -60,8 +88,7 @@ const loginFunction = async () => {
             throw { msg: 'Fel användarnamn eller lösenord' }
         }
         else {
-            // Om inloggningen lyckas, dirigera användaren till "profilepage.html"
-            window.location.href = '../Html/profilepage.html';
+            userBasedOnRole(userRole);
         }
 
     } catch (error) {
