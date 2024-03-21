@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="../Css/style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="profile-header">
+        <img class="header-img" src="../Assets/graphics-header.svg" alt="Header logo">
+
+        <!-- Nav -->
+        <nav class="product__nav">
+            <section class="product__nav-hamburger">
+                <img class="product__hamburger-icon" src="/Assets/navicon.svg" alt="hamburger menu icon">
+            </section>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <main class="profile-main">
+        <section class="profile-main__container">
+            <article class="profile-avatar__container">
+                <img class="profile-avatar__img" src="../Assets/profile.svg" alt="profile img">
+                <h3 class="profile-avatar__name">Sixten Kaffelövér</h3>
+                <p class="profile-avatar__info">sixten.kaffelover@zocom.se</p>
+            </article>
+
+            <article class="client-order__container">
+                <h3 class="profile-order__title">Orderhistorik</h3>
+
+                <!-- Order one -->
+                <article class="profile-product__boxOne">
+                    <article class="profile-product__orderNumber">
+                        <P class="profile-product__orderInfo"><strong>#AB1123282323Z</strong></P>
+                        <p class="profile-product__orderInfo">20/03/06</p>
+                    </article>
+                    <article class="profile-product__cost">
+                        <p class="profile-product__orderInfo">total ordersumma</p>
+                        <p class="profile-product__orderInfo">443 kr</p>
+                    </article>
+                    <hr class="profile-product__lineOne">
+                </article>
+
+                <!-- Order two -->
+                <article class="profile-product__boxTwo">
+                    <article class="profile-product__orderNumber">
+                        <P class="profile-product__orderInfo"><strong>##AB1128382323X</strong></P>
+                        <p class="profile-product__orderInfo">20/03/03</p>
+                    </article>
+
+                    <article class="profile-product__cost">
+                        <p class="profile-product__orderInfo">total ordersumma</p>
+                        <p class="profile-product__orderInfo">333 kr</p>
+                    </article>
+                    <hr class="profile-product__lineOne">
+                </article>
+
+                <!-- Order three -->
+                <article class="profile-product__boxThree">
+                    <article class="profile-product__orderNumber">
+                        <P class="profile-product__orderInfo"><strong>##AB1444482323X</strong></P>
+                        <p class="profile-product__orderInfo">20/02/21</p>
+                    </article>
+
+                    <article class="profile-product__cost">
+                        <p class="profile-product__orderInfo">total ordersumma</p>
+                        <p class="profile-product__orderInfo">893 kr</p>
+                    </article>
+                    <hr class="profile-product__lineTwo">
+                </article>
+
+                <!-- Total Spent -->
+                <article class="profile-product__totalSpent">
+                    <p class="profile-product__orderInfo"><strong>Totalt spenderat</strong></p>
+                    <p class="profile-product__orderInfo"><strong>1669 kr</strong></p>
+                </article>
+            </article>
+        </section>
+    </main>
+
+
+    <!-- Nav slider  -->
+
+    <div class="nav-page__wrapper" id="navPage">
+
+        <button class="nav-page__close-btn">
+            <img class="nav-page__close-icon" src="../Assets/close.svg" alt="Close menu">
+        </button>
+
+        <nav class="nav-page__menu">
+            <ul>
+                <li><a href="./product.html">Meny</a></li>
+                <hr>
+                <li><a href="./aboutpage.html">Vårt Kaffe</a></li>
+                <hr>
+                <li><a href="./profilepage.html">Min Profil</a></li>
+                <hr>
+                <li><a href="./status.html">Orderstatus</a></li>
+                <hr>
+                <li><a href="./signup.html"><button class="navreg-btn">Logga in/Registrera dig</button></a></li>
+            </ul>
+        </nav>
+    </div>
+    <script src="../Script/script.js" type="module"></script>
+</body>
+
+</html>
