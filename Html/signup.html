@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Css/style.css">
+    <title>Registrera</title>
+</head>
+
+<body>
+
+    <div class="login__wrapper">
+
+        <header class="header--dark">
+            <nav class="product__nav">
+                <section class="product__nav-hamburger">
+                    <img class="product__hamburger-icon" src="../Assets/navicon.svg" alt="hamburger menu icon">
+                </section>
+            </nav>
+        </header>
+
+        <main>
+            <!-- SIGNUP START -->
+            <section class="login__form-wrapper">
+                <form class="login__form" action="login.html" id="createAccount">
+
+                    <img class="login__icon" src="../Assets/logo-sml.svg" alt="Small Airbean icon logo">
+
+                    <h1 class="login__heading">Välkommen till AirBean-familjen!</h1>
+                    <p class="login__info-text">Genom att skapa ett konto nedan kan du spara och se din orderhistorik.
+                    </p>
+
+                    <div class="signup__input-group">
+                        <label for="username" class="visually-hidden">Användarnamn</label>
+                        <input class="signup__input" type="text" id="usernameSignup" name="username" placeholder="Användarnamn">
+                        <div class="error"></div>
+                    </div>
+                
+                    <div class="signup__input-group">
+                        <label for="email" class="visually-hidden">E-postadress</label>
+                        <input class="signup__input" type="text" id="emailSignup" name="email" placeholder="E-postadress">
+                        <div class="error"></div>
+                    </div>
+                
+                    <div class="signup__input-group">
+                        <label for="password" class="visually-hidden">Lösenord</label>
+                        <input class="signup__input" type="password" id="passwordSignup" name="password" placeholder="Lösenord">
+                        <div class="error"></div>
+                    </div>
+                
+                    <div class="signup__input-group">
+                        <label for="password2" class="visually-hidden">Bekräfta lösenord</label>
+                        <input class="signup__input" type="password" id="password2Signup" name="password2" placeholder="Bekräfta lösenord">
+                        <div class="error"></div>
+                    </div>
+                
+                    <div class="signup__gdpr-wrapper">
+                        <input type="checkbox" id="gdpr" name="gdpr" required>
+                        <label for="gdpr" class="signup__gdpr-group">GDPR ok!</label>
+                        <div class="error"></div>
+                    </div>
+
+                    <p class="login__login">
+                        <a class="login__login__link" link="#" href="../Html/login.html" id="linkLogin">Har du redan ett konto? Logga in</a>
+                    </p>
+
+                    <button type="submit" class="signup__sumbit-btn" id="signupBtn">Brew me up!</button>
+                </form>
+            </section>
+        </main>
+        <!-- SIGNUP END -->
+                <!-- Nav slider  -->
+
+                <div class="nav-page__wrapper" id="navPage">
+
+                    <button class="nav-page__close-btn">
+                        <img class="nav-page__close-icon" src="../Assets/close.svg" alt="Close menu">
+                    </button>
+        
+                    <nav class="nav-page__menu">
+                        <ul>
+                            <li><a href="./product.html">Meny</a></li>
+                            <hr>
+                            <li><a href="./aboutpage.html">Vårt Kaffe</a></li>
+                            <hr>
+                            <li><a href="./profilepage.html">Min Profil</a></li>
+                            <hr>
+                            <li><a href="./status.html">Orderstatus</a></li>
+                            <hr>
+                            <li><a href="./signup.html"><button class="navreg-btn">Logga in/Registrera dig</button></a></li>
+                        </ul>
+                    </nav>
+                </div>
+        <script src="../Script/script.js" type="module"></script>
+</body>
+
+</html>

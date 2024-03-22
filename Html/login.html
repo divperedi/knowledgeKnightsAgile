@@ -22,59 +22,9 @@
 
         <main>
 
-            <!-- SIGNUP START -->
-            <section class="login__form-wrapper">
-                <form class="login__form" action="#" id="createAccount">
-
-                    <img class="login__icon" src="../Assets/logo-sml.svg" alt="Small Airbean icon logo">
-
-                    <h1 class="login__heading">Välkommen till AirBean-familjen!</h1>
-                    <p class="login__info-text">Genom att skapa ett konto nedan kan du spara och se din orderhistorik.
-                    </p>
-
-                    <label for="username" class="login__input-group">
-                        <div class="login__message login__message--error"></div>
-                        <input type="text" class="login__input" autofocus id="name" name="name"
-                            placeholder="Användarnamn" required>
-                    </label>
-
-                    <label for="email" class="login__input-group">
-                        <div class="login__message login__message--error"></div>
-                        <input type="email" class="login__input" id="email" name="email" placeholder="E-postadress"
-                            required>
-                    </label>
-
-                    <label for="password" class="login__input-group">
-                        <div class="login__message login__message--error"></div>
-                        <input type="password" class="login__input" id="password" name="password" placeholder="Lösenord"
-                            required>
-                    </label>
-
-                    <label for="password" class="login__input-group">
-                        <div class="login__message login__message--error"></div>
-                        <input type="password" class="login__input" id="password" name="password"
-                            placeholder="Bekräfta lösenord" required>
-                    </label>
-
-                    <label for="gdpr approval" class="login__gdpr-group">
-                        <div class="login__message login__message--error"></div>
-                        <div class="login__gdpr-wrapper"><input type="radio" class="login__gdpr-input" id="gdpr"
-                                name="gdpr" required>
-                            GDPR Ok!
-                        </div>
-                    </label>
-
-                    <p class="login__login">
-                        <a class="login__login__link" link="#" id="linkLogin">Har du redan ett konto? Logga in</a>
-                    </p>
-
-                    <button type="submit" class="login__sumbit-btn">Brew me up!</button>
-                </form>
-            </section>
-            <!-- SIGNUP END -->
             <!-- LOGIN START-->
             <section class="login__form-wrapper">
-                <form class="login__form login__form--hidden" action="#" id="login">
+                <form class="login__form" action="#" id="login">
 
                     <img class="login__icon" src="../Assets/logo-sml.svg" alt="Small Airbean icon logo">
 
@@ -85,22 +35,23 @@
 
                     <label for="email" class="login__input-group">
                         <div class="login__message login__message--error"></div>
-                        <input type="email" class="login__input" id="email" name="email"
+                        <input type="text" class="login__input" id="username-login" name="username"
                             placeholder="Användarnamn eller epostadress" required>
                     </label>
 
                     <label for="password" class="login__input-group">
                         <div class="login__message login__message--error"></div>
-                        <input type="password" class="login__input" id="password" name="password" placeholder="Lösenord"
-                            required>
+                        <input type="password" class="login__input" id="password-login" name="password"
+                            placeholder="Lösenord" required>
                     </label>
 
                     <p class="login__login">
-                        <a class="login__login__link" link="#" id="linkCreateAccount">Har du inget konto? Skapa
+                        <a class="login__login__link" link="#" href="../Html/signup.html" id="linkCreateAccount">Har du
+                            inget konto? Skapa
                             konto</a>
                     </p>
 
-                    <button type="submit" class="login__sumbit-btn">Brew me in!</button>
+                    <button type="submit" class="login__sumbit-btn" id="loginBtn">Brew me in!</button>
                 </form>
             </section>
             <!-- LOGIN END -->
@@ -109,27 +60,30 @@
         </main>
     </div>
 
-    <!-- Nav slider  -->
-    <div class="nav-page__wrapper" id="navPage">
+        <!-- Nav slider  -->
 
-        <button class="nav-page__close-btn">
-            <img class="nav-page__close-icon" src="../assets/close.svg" alt="Close menu">
-        </button>
+        <div class="nav-page__wrapper" id="navPage">
 
-        <nav class="nav-page__menu">
-            <ul>
-                <li><a href="./product.html">Meny</a></li>
-                <hr>
-                <li><a href="./aboutpage.html">Vårt Kaffe</a></li>
-                <hr>
-                <li><a href="./login.html">Min Profil</a></li>
-                <hr>
-                <li><a href="./status.html">Orderstatus</li>
-            </ul>
-        </nav>
-    </div>
+            <button class="nav-page__close-btn">
+                <img class="nav-page__close-icon" src="../Assets/close.svg" alt="Close menu">
+            </button>
 
-    <script src="/Script/script.js" type="module"></script>
+            <nav class="nav-page__menu">
+                <ul>
+                    <li><a href="./product.html">Meny</a></li>
+                    <hr>
+                    <li><a href="./aboutpage.html">Vårt Kaffe</a></li>
+                    <hr>
+                    <li><a href="./profilepage.html">Min Profil</a></li>
+                    <hr>
+                    <li><a href="./status.html">Orderstatus</a></li>
+                    <hr>
+                    <li><a href="./signup.html"><button class="navreg-btn">Logga in/Registrera dig</button></a></li>
+                </ul>
+            </nav>
+        </div>
+
+    <script src="../Script/script.js" type="module"></script>
 </body>
 
 </html>
